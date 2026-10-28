@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, usePage } from '@inertiajs/react';
 import { ThemeToggle } from '@/Components/ui/ThemeToggle';
+import { AppLogo } from '@/Components/ui/AppLogo';
 import {
     DropdownMenu,
     DropdownMenuContent,
@@ -18,15 +19,18 @@ export function MobileHeader() {
 
     return (
         <header className="px-5 pt-6 pb-2 relative z-20">
-            {/* Top Row: Greeting & Actions */}
+            {/* Top Row: Brand & Actions */}
             <div className="flex items-center justify-between">
-                <div>
-                    <span className="text-[11px] font-semibold text-sky-600 dark:text-sky-400 uppercase tracking-wider">
-                        MyHabit
-                    </span>
-                    <h1 className="text-xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-                        Halo, {firstName}
-                    </h1>
+                <div className="flex items-center gap-2.5">
+                    <AppLogo size="sm" showText={false} />
+                    <div>
+                        <span className="text-[10px] font-bold text-sky-600 dark:text-sky-400 uppercase tracking-wider block -mb-0.5">
+                            MyHabit
+                        </span>
+                        <h1 className="text-xl font-black text-slate-900 dark:text-white tracking-tight">
+                            Halo, {firstName}
+                        </h1>
+                    </div>
                 </div>
 
                 {/* Right controls: Theme Toggle + Profile menu */}

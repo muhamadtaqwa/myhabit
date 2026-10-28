@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from '@inertiajs/react';
-import { CheckCircle2 } from 'lucide-react';
+import { AppLogo } from '@/Components/ui/AppLogo';
 import { ThemeToggle } from '@/Components/ui/ThemeToggle';
 import { AppToaster } from '@/Components/ui/Toaster';
 
@@ -17,15 +17,12 @@ export default function GuestLayout({ children }) {
                 </div>
 
                 <div className="relative z-10 flex flex-col items-center mb-8">
-                    <div className="w-14 h-14 rounded-3xl bg-gradient-to-tr from-blue-600 to-sky-500 text-white flex items-center justify-center shadow-lg shadow-sky-500/30 mb-3">
-                        <CheckCircle2 className="w-7 h-7 stroke-[2.5]" />
-                    </div>
-                    <h1 className="text-2xl font-black tracking-tight text-slate-900 dark:text-white">
-                        MyHabit
-                    </h1>
-                    <p className="text-xs font-semibold text-slate-500 dark:text-slate-400 mt-1">
-                        Kelola kebiasaan harian Anda dengan konsisten
-                    </p>
+                    <AppLogo
+                        size="lg"
+                        showText={true}
+                        tagline="Kelola kebiasaan & tugas harian Anda secara konsisten"
+                        className="flex-col text-center"
+                    />
                 </div>
 
                 <div className="relative z-10 w-full">
