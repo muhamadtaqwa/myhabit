@@ -3,7 +3,8 @@ name: Deploy MyHabit to Shared Hosting
 on:
   push:
     branches:
-      - master # Sesuaikan jika nama default branch Anda adalah 'main'
+      - main
+      - master
   workflow_dispatch: # Memungkinkan trigger deploy manual dari web GitHub
 
 jobs:
