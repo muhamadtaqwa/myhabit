@@ -14,24 +14,6 @@ Route::get('/', function () {
     return redirect()->route('login');
 });
 
-// Temporary setup route for production database initialization
-Route::get('/setup-db-init', function () {
-    try {
-        \Illuminate\Support\Facades\Artisan::call('migrate', ['--force' => true]);
-        \Illuminate\Support\Facades\Artisan::call('db:seed', ['--force' => true]);
-        return response()->json([
-            'status' => 'success',
-            'message' => 'Database berhasil dimigrasi dan di-seed! Akun taqwa@myhabit.test sudah aktif.',
-            'output' => \Illuminate\Support\Facades\Artisan::output(),
-        ]);
-    } catch (\Throwable $e) {
-        return response()->json([
-            'status' => 'error',
-            'message' => $e->getMessage(),
-        ], 500);
-    }
-});
-
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/today', [HabitController::class, 'index'])->name('today');
     Route::get('/dashboard', fn() => redirect()->route('today'))->name('dashboard');
