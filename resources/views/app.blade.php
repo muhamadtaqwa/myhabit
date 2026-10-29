@@ -9,7 +9,15 @@
         <!-- Favicon & Touch Icons -->
         <link rel="icon" type="image/svg+xml" href="/favicon.svg">
         <link rel="icon" type="image/png" sizes="128x128" href="/favicon.png">
-        <link rel="apple-touch-icon" sizes="128x128" href="/apple-touch-icon.png">
+        <link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192.png">
+
+        <!-- PWA Manifest & App Metas -->
+        <link rel="manifest" href="/manifest.json">
+        <meta name="theme-color" content="#0284c7">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+        <meta name="apple-mobile-web-app-title" content="MyHabit">
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
@@ -32,5 +40,13 @@
     </head>
     <body class="font-sans antialiased">
         @inertia
+        <!-- PWA Service Worker Registration -->
+        <script>
+            if ('serviceWorker' in navigator) {
+                window.addEventListener('load', function() {
+                    navigator.serviceWorker.register('/sw.js').catch(function() {});
+                });
+            }
+        </script>
     </body>
 </html>
