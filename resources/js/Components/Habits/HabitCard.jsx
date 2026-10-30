@@ -113,11 +113,12 @@ export function HabitCard({ habit, selectedDate, onEdit }) {
                     <HabitIcon name={habit.icon} className="w-5 h-5 stroke-[2.2]" />
                 </div>
 
-                {/* Content */}
+                {/* Content: Strictly 2 Clean Lines */}
                 <div className="flex-1 min-w-0">
+                    {/* Baris 1: Judul Habit */}
                     <h3
                         className={cn(
-                            'text-sm font-bold tracking-tight truncate transition-colors',
+                            'text-sm font-bold tracking-tight truncate leading-tight transition-colors',
                             isCompleted
                                 ? 'line-through text-slate-400 dark:text-slate-500'
                                 : 'text-slate-900 dark:text-white'
@@ -126,24 +127,16 @@ export function HabitCard({ habit, selectedDate, onEdit }) {
                         {habit.title}
                     </h3>
 
-                    {/* Metadata tags */}
-                    <div className="flex items-center gap-2 mt-1.5 flex-wrap">
+                    {/* Baris 2: Waktu & Streak (Sejajar dalam 1 baris) */}
+                    <div className="flex items-center gap-2 mt-1 min-w-0 text-[11px]">
                         {/* Time tag */}
-                        <span className="inline-flex items-center gap-1 text-[11px] text-slate-500 dark:text-slate-400 font-semibold bg-slate-100 dark:bg-slate-800/60 px-2 py-0.5 rounded-md">
+                        <span className="inline-flex items-center gap-1 text-slate-500 dark:text-slate-400 font-semibold bg-slate-100 dark:bg-slate-800/70 px-2 py-0.5 rounded-md flex-shrink-0">
                             <TimeIconComponent className="w-3 h-3 text-sky-500" />
                             <span>{timeInfo.label}</span>
                         </span>
 
-                        {/* Category tag */}
-                        {habit.category && (
-                            <span className="inline-flex items-center gap-1.5 text-[11px] text-slate-500 dark:text-slate-400 font-medium">
-                                <span
-                                    className="w-1.5 h-1.5 rounded-full"
-                                    style={{ backgroundColor: habit.category.color }}
-                                />
-                                <span>{habit.category.name}</span>
-                            </span>
-                        )}
+                        {/* Dot separator */}
+                        <span className="text-slate-300 dark:text-slate-700 select-none">•</span>
 
                         {/* Streak badge */}
                         <StreakBadge streak={habit.current_streak} />

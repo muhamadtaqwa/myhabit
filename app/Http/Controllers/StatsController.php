@@ -26,8 +26,7 @@ class StatsController extends Controller
         $weeklyMatrix = $this->streakService->getWeeklyMatrix($user->id, $today->toDateString());
 
         // Habits with streak statistics
-        $habits = Habit::with('category')
-            ->where('user_id', $user->id)
+        $habits = Habit::where('user_id', $user->id)
             ->where('is_archived', false)
             ->get()
             ->map(function (Habit $habit) use ($today, $thirtyDaysAgo) {
@@ -45,10 +44,7 @@ class StatsController extends Controller
                     'title' => $habit->title,
                     'icon' => $habit->icon,
                     'color' => $habit->color,
-                    'category' => $habit->category ? [
-                        'name' => $habit->category->name,
-                        'color' => $habit->category->color,
-                    ] : null,
+                    'time_of_day' => $habit->time_of_day,
                     'current_streak' => $this->streakService->calculateCurrentStreak($habit),
                     'longest_streak' => $this->streakService->calculateLongestStreak($habit),
                     'completed_last_30' => $completedLast30,
@@ -75,20 +71,22 @@ class StatsController extends Controller
             ? (int) round(collect($weeklyMatrix)->avg('percentage'))
             : 0;
 
-        // Category distribution
-        $activeHabitsCollection = Habit::with('category')
-            ->where('user_id', $user->id)
-            ->where('is_archived', false)
-            ->get();
+        // Time of day distribution
+        $timeLabels = [
+            'morning' => ['name' => 'Pagi', 'color' => '#f59e0b'],
+            'afternoon' => ['name' => 'Siang', 'color' => '#0284c7'],
+            'evening' => ['name' => 'Malam', 'color' => '#6366f1'],
+            'anytime' => ['name' => 'Kapan Saja', 'color' => '#10b981'],
+        ];
 
-        $categoryDistribution = $activeHabitsCollection
-            ->groupBy(fn($h) => $h->category ? $h->category->name : 'Tanpa Kategori')
-            ->map(function ($items, $name) use ($totalActiveHabits) {
-                $first = $items->first();
+        $timeDistribution = $habits
+            ->groupBy(fn($h) => $h['time_of_day'] ?: 'anytime')
+            ->map(function ($items, $timeKey) use ($totalActiveHabits, $timeLabels) {
+                $meta = $timeLabels[$timeKey] ?? $timeLabels['anytime'];
                 $count = $items->count();
                 return [
-                    'name' => $name,
-                    'color' => $first->category ? $first->category->color : '#0284c7',
+                    'name' => $meta['name'],
+                    'color' => $meta['color'],
                     'count' => $count,
                     'percentage' => $totalActiveHabits > 0 ? (int) round(($count / $totalActiveHabits) * 100) : 0,
                 ];
@@ -103,7 +101,7 @@ class StatsController extends Controller
         return Inertia::render('Stats', [
             'weeklyMatrix' => $weeklyMatrix,
             'habits' => $habits,
-            'categoryDistribution' => $categoryDistribution,
+            'timeDistribution' => $timeDistribution,
             'metrics' => [
                 'total_habits' => $totalActiveHabits,
                 'best_current_streak' => $bestCurrentStreak,

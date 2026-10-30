@@ -22,13 +22,12 @@ const COLOR_PALETTE = [
     { name: 'Slate', value: '#64748b' },
 ];
 
-export function HabitFormDrawer({ open, onOpenChange, habit = null, categories = [] }) {
+export function HabitFormDrawer({ open, onOpenChange, habit = null }) {
     const isEditing = Boolean(habit);
 
     const { data, setData, post, put, processing, errors, reset, clearErrors } = useForm({
         title: '',
         description: '',
-        category_id: '',
         time_of_day: 'anytime',
         icon: 'Check',
         color: '#0284c7',
@@ -39,16 +38,12 @@ export function HabitFormDrawer({ open, onOpenChange, habit = null, categories =
             setData({
                 title: habit.title || '',
                 description: habit.description || '',
-                category_id: habit.category_id || (habit.category ? habit.category.id : ''),
                 time_of_day: habit.time_of_day || 'anytime',
                 icon: habit.icon || 'Check',
                 color: habit.color || '#0284c7',
             });
         } else {
             reset();
-            if (categories.length > 0) {
-                setData('category_id', categories[0].id);
-            }
         }
         clearErrors();
     }, [habit, open]);
@@ -91,7 +86,7 @@ export function HabitFormDrawer({ open, onOpenChange, habit = null, categories =
                     </DialogTitle>
                     <DialogDescription className="text-xs text-slate-500 dark:text-slate-400">
                         {isEditing
-                            ? 'Sesuaikan nama, jadwal pelaksanaan, dan kategori habit Anda.'
+                            ? 'Sesuaikan nama dan jadwal pelaksanaan habit Anda.'
                             : 'Tambahkan kebiasaan harian baru untuk mulai melacak konsistensi.'}
                     </DialogDescription>
                 </DialogHeader>
@@ -143,39 +138,6 @@ export function HabitFormDrawer({ open, onOpenChange, habit = null, categories =
                             })}
                         </div>
                     </div>
-
-                    {/* Category */}
-                    {categories.length > 0 && (
-                        <div>
-                            <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1.5">
-                                Kategori
-                            </label>
-                            <div className="flex flex-wrap gap-2">
-                                {categories.map((cat) => {
-                                    const isSelected = String(data.category_id) === String(cat.id);
-                                    return (
-                                        <button
-                                            key={cat.id}
-                                            type="button"
-                                            onClick={() => setData('category_id', cat.id)}
-                                            className={cn(
-                                                'inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-bold border transition',
-                                                isSelected
-                                                    ? 'bg-slate-900 text-white dark:bg-white dark:text-slate-900 border-transparent shadow-xs'
-                                                    : 'bg-white dark:bg-slate-900/50 text-slate-600 dark:text-slate-400 border-slate-200 dark:border-slate-800 hover:border-sky-300'
-                                            )}
-                                        >
-                                            <span
-                                                className="w-2 h-2 rounded-full"
-                                                style={{ backgroundColor: cat.color }}
-                                            />
-                                            <span>{cat.name}</span>
-                                        </button>
-                                    );
-                                })}
-                            </div>
-                        </div>
-                    )}
 
                     {/* Icon Selection */}
                     <div>

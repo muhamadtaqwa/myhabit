@@ -103,11 +103,11 @@ class HabitController extends Controller
         $maxSort = Habit::where('user_id', $user->id)->max('sort_order') ?? 0;
 
         $user->habits()->create([
-            'category_id' => $request->category_id,
+            'category_id' => $request->category_id ?? null,
             'title' => $request->title,
             'description' => $request->description,
             'icon' => $request->icon ?? 'Check',
-            'color' => $request->color ?? '#3b82f6',
+            'color' => $request->color ?? '#0284c7',
             'time_of_day' => $request->time_of_day,
             'sort_order' => $maxSort + 1,
         ]);

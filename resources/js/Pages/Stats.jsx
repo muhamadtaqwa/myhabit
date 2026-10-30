@@ -4,8 +4,8 @@ import { HabitIcon } from '@/lib/icons';
 import { StreakBadge } from '@/Components/Habits/StreakBadge';
 import { ThemeToggle } from '@/Components/ui/ThemeToggle';
 import { WeeklyBarChart } from '@/Components/Stats/WeeklyBarChart';
-import { CategoryDonutChart } from '@/Components/Stats/CategoryDonutChart';
-import { Award, BarChart3, CheckCircle, CheckSquare, Flame, Target } from 'lucide-react';
+import { TimeDistributionChart } from '@/Components/Stats/TimeDistributionChart';
+import { Award, BarChart3, CheckCircle, CheckSquare, Clock, Flame, Target } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 export function StatsHeader() {
@@ -35,7 +35,7 @@ export function StatsHeader() {
 export default function Stats({
     weeklyMatrix = [],
     habits = [],
-    categoryDistribution = [],
+    timeDistribution = [],
     metrics = {},
 }) {
     return (
@@ -111,9 +111,9 @@ export default function Stats({
                 {/* 1. VISUAL INTERACTIVE BAR CHART */}
                 <WeeklyBarChart data={weeklyMatrix} average={metrics.weekly_average || 0} />
 
-                {/* 2. CATEGORY DONUT CHART */}
-                <CategoryDonutChart
-                    categories={categoryDistribution}
+                {/* 2. TIME DISTRIBUTION CHART */}
+                <TimeDistributionChart
+                    distribution={timeDistribution}
                     totalHabits={metrics.total_habits || 0}
                 />
 
@@ -185,15 +185,9 @@ export default function Stats({
                                                 <p className="text-sm font-bold text-slate-900 dark:text-white truncate">
                                                     {habit.title}
                                                 </p>
-                                                {habit.category && (
-                                                    <p className="text-[11px] text-slate-500 flex items-center gap-1.5 mt-0.5 font-medium">
-                                                        <span
-                                                            className="w-1.5 h-1.5 rounded-full"
-                                                            style={{ backgroundColor: habit.category.color }}
-                                                        />
-                                                        <span>{habit.category.name}</span>
-                                                    </p>
-                                                )}
+                                                <p className="text-[11px] text-slate-500 dark:text-slate-400 font-semibold mt-0.5 capitalize">
+                                                    {habit.time_of_day === 'morning' ? 'Pagi' : habit.time_of_day === 'afternoon' ? 'Siang' : habit.time_of_day === 'evening' ? 'Malam' : 'Kapan Saja'}
+                                                </p>
                                             </div>
                                         </div>
 

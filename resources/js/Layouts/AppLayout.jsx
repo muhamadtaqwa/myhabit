@@ -11,10 +11,7 @@ const HabitDrawerContext = createContext({
 
 export const useHabitDrawer = () => useContext(HabitDrawerContext);
 
-export function AppLayout({ title, children, categories = [] }) {
-    const pageCategories = usePage().props.categories || [];
-    const availableCategories = categories && categories.length > 0 ? categories : pageCategories;
-
+export function AppLayout({ title, children }) {
     const [drawerOpen, setDrawerOpen] = useState(false);
     const [editingHabit, setEditingHabit] = useState(null);
 
@@ -51,7 +48,6 @@ export function AppLayout({ title, children, categories = [] }) {
                         open={drawerOpen}
                         onOpenChange={setDrawerOpen}
                         habit={editingHabit}
-                        categories={availableCategories}
                     />
 
                     {/* Toast Notification Container */}
