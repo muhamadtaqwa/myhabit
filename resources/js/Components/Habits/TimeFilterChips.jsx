@@ -11,7 +11,7 @@ export function TimeFilterChips({ activeFilter, onSelectFilter }) {
     ];
 
     return (
-        <div className="flex items-center gap-2 overflow-x-auto no-scrollbar py-1">
+        <div className="grid grid-cols-4 gap-1.5 w-full py-0.5">
             {filters.map((f) => {
                 const IconComponent = f.icon;
                 const isActive = activeFilter === f.id;
@@ -21,14 +21,14 @@ export function TimeFilterChips({ activeFilter, onSelectFilter }) {
                         type="button"
                         onClick={() => onSelectFilter(f.id)}
                         className={cn(
-                            'flex items-center gap-1.5 px-4 py-2 rounded-2xl text-xs font-semibold whitespace-nowrap transition-all duration-200 active:scale-95',
+                            'flex items-center justify-center gap-1 sm:gap-1.5 py-2 px-1 rounded-xl text-[11px] sm:text-xs font-semibold transition-all duration-200 active:scale-95 text-center',
                             isActive
-                                ? 'bg-sky-500 text-white shadow-md shadow-sky-500/25'
+                                ? 'bg-sky-500 text-white shadow-sm shadow-sky-500/25 font-bold'
                                 : 'bg-white dark:bg-[#131d36] text-slate-600 dark:text-slate-400 border border-slate-200/80 dark:border-slate-800 hover:border-sky-300'
                         )}
                     >
-                        <IconComponent className={cn('w-3.5 h-3.5', isActive ? 'text-white' : 'text-slate-400')} />
-                        <span>{f.label}</span>
+                        <IconComponent className={cn('w-3.5 h-3.5 shrink-0', isActive ? 'text-white' : 'text-slate-400')} />
+                        <span className="truncate">{f.label}</span>
                     </button>
                 );
             })}
