@@ -37,9 +37,9 @@ function TodayContent({ habits = [], selectedDate, dateStrip = [], dailySummary 
                 {/* 7-Day Date Strip */}
                 <DateStrip dateStrip={dateStrip} selectedDate={selectedDate} />
 
-                {/* Quick Glance: Harus Dikerjakan vs Sudah Selesai */}
+                {/* Quick Glance: Belum vs Selesai */}
                 <div className="grid grid-cols-2 gap-2.5 pt-0.5">
-                    {/* Harus Dikerjakan Button */}
+                    {/* Belum Button */}
                     <button
                         type="button"
                         onClick={() => setStatusFilter(statusFilter === 'pending' ? 'all' : 'pending')}
@@ -52,7 +52,7 @@ function TodayContent({ habits = [], selectedDate, dateStrip = [], dailySummary 
                     >
                         <div>
                             <span className={cn('text-[10px] font-bold uppercase tracking-wider', statusFilter === 'pending' ? 'text-sky-100' : 'text-slate-400')}>
-                                Harus Dikerjakan
+                                Belum
                             </span>
                             <p className="text-xl font-black mt-0.5">
                                 {totalPending} <span className="text-xs font-semibold font-normal opacity-80">habit</span>
@@ -66,7 +66,7 @@ function TodayContent({ habits = [], selectedDate, dateStrip = [], dailySummary 
                         </div>
                     </button>
 
-                    {/* Sudah Selesai Button */}
+                    {/* Selesai Button */}
                     <button
                         type="button"
                         onClick={() => setStatusFilter(statusFilter === 'completed' ? 'all' : 'completed')}
@@ -79,7 +79,7 @@ function TodayContent({ habits = [], selectedDate, dateStrip = [], dailySummary 
                     >
                         <div>
                             <span className={cn('text-[10px] font-bold uppercase tracking-wider', statusFilter === 'completed' ? 'text-emerald-100' : 'text-emerald-600 dark:text-emerald-400')}>
-                                Sudah Selesai
+                                Selesai
                             </span>
                             <p className="text-xl font-black mt-0.5">
                                 {totalCompleted} <span className="text-xs font-semibold font-normal opacity-80">habit</span>
@@ -133,13 +133,13 @@ function TodayContent({ habits = [], selectedDate, dateStrip = [], dailySummary 
                     </div>
                 ) : (
                     <div className="space-y-3 pt-0.5">
-                        {/* 1. SECTION: HARUS DIKERJAKAN */}
+                        {/* 1. SECTION: BELUM */}
                         {(statusFilter === 'all' || statusFilter === 'pending') && pendingHabits.length > 0 && (
                             <div className="space-y-2">
                                 <div className="flex items-center justify-between px-1">
                                     <p className="text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider flex items-center gap-1.5">
                                         <Clock className="w-3.5 h-3.5 text-sky-500 stroke-[2.5]" />
-                                        <span>Harus Dikerjakan ({pendingHabits.length})</span>
+                                        <span>Belum ({pendingHabits.length})</span>
                                     </p>
                                 </div>
                                 <div className="space-y-2">
@@ -155,13 +155,13 @@ function TodayContent({ habits = [], selectedDate, dateStrip = [], dailySummary 
                             </div>
                         )}
 
-                        {/* 2. SECTION: SUDAH SELESAI */}
+                        {/* 2. SECTION: SELESAI */}
                         {(statusFilter === 'all' || statusFilter === 'completed') && completedHabits.length > 0 && (
                             <div className="space-y-2 pt-1">
                                 <div className="flex items-center justify-between px-1">
                                     <p className="text-[11px] font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider flex items-center gap-1.5">
                                         <CheckCircle2 className="w-3.5 h-3.5 stroke-[2.5]" />
-                                        <span>Sudah Selesai ({completedHabits.length})</span>
+                                        <span>Selesai ({completedHabits.length})</span>
                                     </p>
                                 </div>
                                 <div className="space-y-2">

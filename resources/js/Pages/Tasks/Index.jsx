@@ -110,13 +110,13 @@ export default function TasksIndex({ tasks = [], summary = { total: 0, pending: 
                 <TasksHeader onOpenNewTask={handleOpenNewTask} />
 
                 <main className="flex-1 px-4 py-4 space-y-4">
-                    {/* Summary Quick Glance Cards (Harus Dikerjakan vs Sudah Selesai) */}
+                    {/* Summary Quick Glance Cards (Belum vs Selesai) */}
                     <div className="grid grid-cols-2 gap-2.5">
-                        {/* Harus Dikerjakan */}
+                        {/* Belum */}
                         <div className="px-3.5 py-2.5 rounded-2xl bg-white dark:bg-[#131d36] border border-slate-200/80 dark:border-slate-800/80 shadow-xs flex items-center justify-between">
                             <div>
                                 <span className="text-[10px] font-bold uppercase tracking-wider text-rose-500">
-                                    Harus Dikerjakan
+                                    Belum
                                 </span>
                                 <p className="text-xl font-black text-slate-900 dark:text-white mt-0.5">
                                     {summary.pending}
@@ -127,11 +127,11 @@ export default function TasksIndex({ tasks = [], summary = { total: 0, pending: 
                             </div>
                         </div>
 
-                        {/* Sudah Selesai */}
+                        {/* Selesai */}
                         <div className="px-3.5 py-2.5 rounded-2xl bg-white dark:bg-[#131d36] border border-slate-200/80 dark:border-slate-800/80 shadow-xs flex items-center justify-between">
                             <div>
                                 <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-500">
-                                    Sudah Selesai
+                                    Selesai
                                 </span>
                                 <p className="text-xl font-black text-slate-900 dark:text-white mt-0.5">
                                     {summary.completed}
@@ -170,7 +170,7 @@ export default function TasksIndex({ tasks = [], summary = { total: 0, pending: 
                             {pendingTasks.length > 0 && (
                                 <div className="space-y-2.5">
                                     <p className="text-[11px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider px-1">
-                                        Perlu Dikerjakan ({pendingTasks.length})
+                                        Belum ({pendingTasks.length})
                                     </p>
                                     <div className="space-y-2">
                                         {pendingTasks.map((task) => {
@@ -247,7 +247,7 @@ export default function TasksIndex({ tasks = [], summary = { total: 0, pending: 
                                 <div className="space-y-2 pt-1">
                                     <p className="text-[11px] font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider px-1 flex items-center gap-1.5">
                                         <CheckCircle2 className="w-3.5 h-3.5 stroke-[2.5]" />
-                                        <span>Sudah Selesai ({completedTasks.length})</span>
+                                        <span>Selesai ({completedTasks.length})</span>
                                     </p>
                                     <div className="space-y-2">
                                         {completedTasks.map((task) => (

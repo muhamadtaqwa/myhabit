@@ -10,7 +10,7 @@ Aplikasi pelacak kebiasaan dan tugas harian yang dirancang khusus untuk kenyaman
 ## Fitur Utama
 
 ### 1. 📅 Hari Ini (Daily Habit Tracker)
-* **Status Seketika**: Menjawab langsung pertanyaan *"Hari ini sudah ngapain aja dan harus apa aja"* lewat tombol filter cepat **Harus Dikerjakan** vs **Sudah Selesai**.
+* **Status Seketika**: Menjawab langsung pertanyaan *"Hari ini sudah ngapain aja dan harus apa aja"* lewat tombol filter cepat **Belum** vs **Selesai**.
 * **Progress Card Melayang**: Visualisasi persentase penyelesaian kebiasaan harian dengan gradasi biru modern.
 * **Filter Waktu**: Pilah kebiasaan berdasarkan waktu (*Semua*, *Pagi*, *Siang*, *Malam*).
 * **Date Strip 7 Hari**: Navigasi tanggal berbentuk kapsul interaktif.
