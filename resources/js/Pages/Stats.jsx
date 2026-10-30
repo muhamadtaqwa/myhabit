@@ -44,10 +44,10 @@ export default function Stats({
 
             <main className="flex-1 px-4 py-4 space-y-4">
                 {/* 4 Key Metrics Grid */}
-                <div className="grid grid-cols-2 gap-3">
+                <div className="grid grid-cols-2 gap-2.5">
                     {/* Active Habits */}
-                    <div className="p-4 rounded-2xl bg-white dark:bg-[#131d36] border border-slate-200/80 dark:border-slate-800/80 shadow-xs">
-                        <div className="flex items-center justify-between text-slate-400 mb-2">
+                    <div className="px-3.5 py-2.5 rounded-2xl bg-white dark:bg-[#131d36] border border-slate-200/80 dark:border-slate-800/80 shadow-xs">
+                        <div className="flex items-center justify-between text-slate-400 mb-1.5">
                             <span className="text-[11px] font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
                                 Habit Aktif
                             </span>
@@ -55,14 +55,14 @@ export default function Stats({
                                 <Target className="w-4 h-4 stroke-[2.2]" />
                             </div>
                         </div>
-                        <p className="text-2xl font-black text-slate-900 dark:text-white">
+                        <p className="text-xl font-black text-slate-900 dark:text-white">
                             {metrics.total_habits || 0}
                         </p>
                     </div>
 
                     {/* Best Current Streak */}
-                    <div className="p-4 rounded-2xl bg-white dark:bg-[#131d36] border border-slate-200/80 dark:border-slate-800/80 shadow-xs">
-                        <div className="flex items-center justify-between text-slate-400 mb-2">
+                    <div className="px-3.5 py-2.5 rounded-2xl bg-white dark:bg-[#131d36] border border-slate-200/80 dark:border-slate-800/80 shadow-xs">
+                        <div className="flex items-center justify-between text-slate-400 mb-1.5">
                             <span className="text-[11px] font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
                                 Streak Tertinggi
                             </span>
@@ -70,15 +70,15 @@ export default function Stats({
                                 <Flame className="w-4 h-4 stroke-[2.2]" />
                             </div>
                         </div>
-                        <p className="text-2xl font-black text-slate-900 dark:text-white flex items-baseline gap-1">
+                        <p className="text-xl font-black text-slate-900 dark:text-white flex items-baseline gap-1">
                             <span>{metrics.best_current_streak || 0}</span>
                             <span className="text-xs font-semibold text-slate-400">hari</span>
                         </p>
                     </div>
 
                     {/* Longest All Time */}
-                    <div className="p-4 rounded-2xl bg-white dark:bg-[#131d36] border border-slate-200/80 dark:border-slate-800/80 shadow-xs">
-                        <div className="flex items-center justify-between text-slate-400 mb-2">
+                    <div className="px-3.5 py-2.5 rounded-2xl bg-white dark:bg-[#131d36] border border-slate-200/80 dark:border-slate-800/80 shadow-xs">
+                        <div className="flex items-center justify-between text-slate-400 mb-1.5">
                             <span className="text-[11px] font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
                                 Rekor Terpanjang
                             </span>
@@ -86,15 +86,15 @@ export default function Stats({
                                 <Award className="w-4 h-4 stroke-[2.2]" />
                             </div>
                         </div>
-                        <p className="text-2xl font-black text-slate-900 dark:text-white flex items-baseline gap-1">
+                        <p className="text-xl font-black text-slate-900 dark:text-white flex items-baseline gap-1">
                             <span>{metrics.best_all_time_streak || 0}</span>
                             <span className="text-xs font-semibold text-slate-400">hari</span>
                         </p>
                     </div>
 
                     {/* Consistency 30 Days */}
-                    <div className="p-4 rounded-2xl bg-white dark:bg-[#131d36] border border-slate-200/80 dark:border-slate-800/80 shadow-xs">
-                        <div className="flex items-center justify-between text-slate-400 mb-2">
+                    <div className="px-3.5 py-2.5 rounded-2xl bg-white dark:bg-[#131d36] border border-slate-200/80 dark:border-slate-800/80 shadow-xs">
+                        <div className="flex items-center justify-between text-slate-400 mb-1.5">
                             <span className="text-[11px] font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
                                 30 Hari Terakhir
                             </span>
@@ -102,7 +102,7 @@ export default function Stats({
                                 <CheckCircle className="w-4 h-4 stroke-[2.2]" />
                             </div>
                         </div>
-                        <p className="text-2xl font-black text-slate-900 dark:text-white">
+                        <p className="text-xl font-black text-slate-900 dark:text-white">
                             {metrics.overall_rate_30 || 0}%
                         </p>
                     </div>
@@ -119,7 +119,7 @@ export default function Stats({
 
                 {/* 3. TASK COMPLETION SNAPSHOT */}
                 {metrics.tasks_total > 0 && (
-                    <div className="p-4 rounded-3xl bg-white dark:bg-[#131d36] border border-slate-200/80 dark:border-slate-800/80 shadow-xs space-y-2.5">
+                    <div className="px-3.5 py-3 rounded-2xl bg-white dark:bg-[#131d36] border border-slate-200/80 dark:border-slate-800/80 shadow-xs space-y-2">
                         <div className="flex items-center justify-between">
                             <div className="flex items-center gap-2">
                                 <div className="w-7 h-7 rounded-xl bg-violet-50 dark:bg-violet-950/40 text-violet-500 flex items-center justify-center">
@@ -146,7 +146,7 @@ export default function Stats({
                             />
                         </div>
 
-                        <div className="flex items-center justify-between text-xs text-slate-500 pt-1">
+                        <div className="flex items-center justify-between text-xs text-slate-500 pt-0.5">
                             <span>Selesai: <strong className="text-slate-800 dark:text-slate-200">{metrics.tasks_completed}</strong> tugas</span>
                             <span>Tertunda: <strong className="text-slate-800 dark:text-slate-200">{metrics.tasks_total - metrics.tasks_completed}</strong> tugas</span>
                         </div>
@@ -154,7 +154,7 @@ export default function Stats({
                 )}
 
                 {/* 4. DETAIL TIAP KEBIASAAN */}
-                <div className="space-y-3 pt-1">
+                <div className="space-y-2.5 pt-0.5">
                     <h2 className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider px-1">
                         Detail Tiap Kebiasaan ({habits.length})
                     </h2>
@@ -164,22 +164,22 @@ export default function Stats({
                             Belum ada habit aktif untuk ditampilkan.
                         </p>
                     ) : (
-                        <div className="space-y-3">
+                        <div className="space-y-2">
                             {habits.map((habit) => (
                                 <div
                                     key={habit.id}
-                                    className="p-4 rounded-2xl bg-white dark:bg-[#131d36] border border-slate-200/80 dark:border-slate-800/80 shadow-xs space-y-3"
+                                    className="px-3.5 py-2.5 rounded-2xl bg-white dark:bg-[#131d36] border border-slate-200/80 dark:border-slate-800/80 shadow-xs space-y-2"
                                 >
                                     <div className="flex items-center justify-between">
-                                        <div className="flex items-center gap-3 min-w-0">
+                                        <div className="flex items-center gap-2.5 min-w-0">
                                             <div
-                                                className="w-11 h-11 rounded-2xl flex items-center justify-center flex-shrink-0 shadow-xs"
+                                                className="w-9.5 h-9.5 rounded-xl flex items-center justify-center flex-shrink-0 shadow-xs"
                                                 style={{
                                                     backgroundColor: `${habit.color || '#0284c7'}18`,
                                                     color: habit.color || '#0284c7',
                                                 }}
                                             >
-                                                <HabitIcon name={habit.icon} className="w-5 h-5 stroke-[2.2]" />
+                                                <HabitIcon name={habit.icon} className="w-4.5 h-4.5 stroke-[2.2]" />
                                             </div>
                                             <div className="min-w-0">
                                                 <p className="text-sm font-bold text-slate-900 dark:text-white truncate">
@@ -195,7 +195,7 @@ export default function Stats({
                                     </div>
 
                                     {/* Progress info */}
-                                    <div className="space-y-2 pt-2 border-t border-slate-100 dark:border-slate-800/60">
+                                    <div className="space-y-1.5 pt-1.5 border-t border-slate-100 dark:border-slate-800/60">
                                         <div className="flex items-center justify-between text-xs font-semibold text-slate-500">
                                             <span>Konsistensi 30 Hari</span>
                                             <span className="text-slate-800 dark:text-slate-200">

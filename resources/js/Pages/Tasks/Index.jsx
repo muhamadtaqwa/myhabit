@@ -111,34 +111,34 @@ export default function TasksIndex({ tasks = [], summary = { total: 0, pending: 
 
                 <main className="flex-1 px-4 py-4 space-y-4">
                     {/* Summary Quick Glance Cards (Harus Dikerjakan vs Sudah Selesai) */}
-                    <div className="grid grid-cols-2 gap-3">
+                    <div className="grid grid-cols-2 gap-2.5">
                         {/* Harus Dikerjakan */}
-                        <div className="p-4 rounded-3xl bg-white dark:bg-[#131d36] border border-slate-200/80 dark:border-slate-800/80 shadow-xs flex items-center justify-between">
+                        <div className="px-3.5 py-2.5 rounded-2xl bg-white dark:bg-[#131d36] border border-slate-200/80 dark:border-slate-800/80 shadow-xs flex items-center justify-between">
                             <div>
                                 <span className="text-[10px] font-bold uppercase tracking-wider text-rose-500">
                                     Harus Dikerjakan
                                 </span>
-                                <p className="text-2xl font-black text-slate-900 dark:text-white mt-0.5">
+                                <p className="text-xl font-black text-slate-900 dark:text-white mt-0.5">
                                     {summary.pending}
                                 </p>
                             </div>
-                            <div className="w-10 h-10 rounded-2xl bg-rose-50 dark:bg-rose-950/40 text-rose-500 flex items-center justify-center">
-                                <Clock className="w-5 h-5 stroke-[2.2]" />
+                            <div className="w-8.5 h-8.5 rounded-xl bg-rose-50 dark:bg-rose-950/40 text-rose-500 flex items-center justify-center">
+                                <Clock className="w-4.5 h-4.5 stroke-[2.2]" />
                             </div>
                         </div>
 
                         {/* Sudah Selesai */}
-                        <div className="p-4 rounded-3xl bg-white dark:bg-[#131d36] border border-slate-200/80 dark:border-slate-800/80 shadow-xs flex items-center justify-between">
+                        <div className="px-3.5 py-2.5 rounded-2xl bg-white dark:bg-[#131d36] border border-slate-200/80 dark:border-slate-800/80 shadow-xs flex items-center justify-between">
                             <div>
                                 <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-500">
                                     Sudah Selesai
                                 </span>
-                                <p className="text-2xl font-black text-slate-900 dark:text-white mt-0.5">
+                                <p className="text-xl font-black text-slate-900 dark:text-white mt-0.5">
                                     {summary.completed}
                                 </p>
                             </div>
-                            <div className="w-10 h-10 rounded-2xl bg-emerald-50 dark:bg-emerald-950/40 text-emerald-500 flex items-center justify-center">
-                                <CheckCircle2 className="w-5 h-5 stroke-[2.2]" />
+                            <div className="w-8.5 h-8.5 rounded-xl bg-emerald-50 dark:bg-emerald-950/40 text-emerald-500 flex items-center justify-center">
+                                <CheckCircle2 className="w-4.5 h-4.5 stroke-[2.2]" />
                             </div>
                         </div>
                     </div>
@@ -172,13 +172,13 @@ export default function TasksIndex({ tasks = [], summary = { total: 0, pending: 
                                     <p className="text-[11px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider px-1">
                                         Perlu Dikerjakan ({pendingTasks.length})
                                     </p>
-                                    <div className="space-y-2.5">
+                                    <div className="space-y-2">
                                         {pendingTasks.map((task) => {
                                             const priority = priorityBadges[task.priority] || priorityBadges.medium;
                                             return (
                                                 <div
                                                     key={task.id}
-                                                    className="p-4 rounded-2xl bg-white dark:bg-[#131d36] border border-slate-200/80 dark:border-slate-800/80 shadow-xs flex items-center justify-between transition hover:shadow-md"
+                                                    className="px-3.5 py-2.5 rounded-2xl bg-white dark:bg-[#131d36] border border-slate-200/80 dark:border-slate-800/80 shadow-xs flex items-center justify-between transition hover:shadow-md"
                                                 >
                                                     <div className="flex-1 min-w-0 pr-3">
                                                         <div className="flex items-center gap-2">
@@ -188,13 +188,13 @@ export default function TasksIndex({ tasks = [], summary = { total: 0, pending: 
                                                         </div>
 
                                                         {task.description && (
-                                                            <p className="text-xs text-slate-500 dark:text-slate-400 mt-1 line-clamp-2">
+                                                            <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5 line-clamp-2">
                                                                 {task.description}
                                                             </p>
                                                         )}
 
-                                                        <div className="flex items-center gap-2 mt-2 flex-wrap">
-                                                            <span className={cn('text-[10px] font-bold px-2 py-0.5 rounded-md border', priority.class)}>
+                                                        <div className="flex items-center gap-2 mt-1.5 flex-wrap">
+                                                            <span className={cn('text-[10px] font-bold px-1.5 py-0.5 rounded-md border', priority.class)}>
                                                                 {priority.label}
                                                             </span>
 
@@ -207,9 +207,9 @@ export default function TasksIndex({ tasks = [], summary = { total: 0, pending: 
                                                         </div>
                                                     </div>
 
-                                                    <div className="flex items-center gap-1.5 flex-shrink-0">
+                                                    <div className="flex items-center gap-1 flex-shrink-0">
                                                         <DropdownMenu>
-                                                            <DropdownMenuTrigger className="p-2 rounded-xl text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">
+                                                            <DropdownMenuTrigger className="p-1.5 rounded-lg text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">
                                                                 <MoreVertical className="w-4 h-4" />
                                                             </DropdownMenuTrigger>
                                                             <DropdownMenuContent align="end" className="rounded-2xl p-1.5 shadow-xl border-slate-200 dark:border-slate-800">
@@ -230,9 +230,9 @@ export default function TasksIndex({ tasks = [], summary = { total: 0, pending: 
                                                             type="button"
                                                             onClick={() => handleToggle(task)}
                                                             aria-label="Tandai selesai"
-                                                            className="w-11 h-11 rounded-2xl flex items-center justify-center bg-slate-50 dark:bg-slate-800/80 border-2 border-slate-200 dark:border-slate-700 hover:border-sky-400 text-slate-300 dark:text-slate-600 active:scale-90 transition"
+                                                            className="w-9.5 h-9.5 rounded-xl flex items-center justify-center bg-slate-50 dark:bg-slate-800/80 border-2 border-slate-200 dark:border-slate-700 hover:border-sky-400 text-slate-300 dark:text-slate-600 active:scale-90 transition"
                                                         >
-                                                            <Check className="w-5 h-5 opacity-30 stroke-[3]" />
+                                                            <Check className="w-4.5 h-4.5 opacity-30 stroke-[3]" />
                                                         </button>
                                                     </div>
                                                 </div>
@@ -244,16 +244,16 @@ export default function TasksIndex({ tasks = [], summary = { total: 0, pending: 
 
                             {/* Completed Tasks */}
                             {completedTasks.length > 0 && (
-                                <div className="space-y-2.5 pt-2">
+                                <div className="space-y-2 pt-1">
                                     <p className="text-[11px] font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider px-1 flex items-center gap-1.5">
                                         <CheckCircle2 className="w-3.5 h-3.5 stroke-[2.5]" />
                                         <span>Sudah Selesai ({completedTasks.length})</span>
                                     </p>
-                                    <div className="space-y-2.5">
+                                    <div className="space-y-2">
                                         {completedTasks.map((task) => (
                                             <div
                                                 key={task.id}
-                                                className="p-4 rounded-2xl bg-slate-50/70 dark:bg-[#0f172a]/40 border border-slate-200/60 dark:border-slate-800/40 opacity-75 flex items-center justify-between"
+                                                className="px-3.5 py-2.5 rounded-2xl bg-slate-50/70 dark:bg-[#0f172a]/40 border border-slate-200/60 dark:border-slate-800/40 opacity-75 flex items-center justify-between"
                                             >
                                                 <div className="flex-1 min-w-0 pr-3">
                                                     <h3 className="text-sm font-bold line-through text-slate-400 dark:text-slate-500 truncate">
@@ -266,11 +266,11 @@ export default function TasksIndex({ tasks = [], summary = { total: 0, pending: 
                                                     )}
                                                 </div>
 
-                                                <div className="flex items-center gap-1.5 flex-shrink-0">
+                                                <div className="flex items-center gap-1 flex-shrink-0">
                                                     <button
                                                         type="button"
                                                         onClick={() => handleDelete(task)}
-                                                        className="p-2 rounded-xl text-slate-400 hover:text-rose-600 transition"
+                                                        className="p-1.5 rounded-lg text-slate-400 hover:text-rose-600 transition"
                                                     >
                                                         <Trash2 className="w-4 h-4 stroke-[2]" />
                                                     </button>
@@ -278,9 +278,9 @@ export default function TasksIndex({ tasks = [], summary = { total: 0, pending: 
                                                     <button
                                                         type="button"
                                                         onClick={() => handleToggle(task)}
-                                                        className="w-11 h-11 rounded-2xl flex items-center justify-center bg-gradient-to-tr from-sky-500 to-blue-600 text-white shadow-md shadow-sky-500/30 active:scale-90 transition"
+                                                        className="w-9.5 h-9.5 rounded-xl flex items-center justify-center bg-gradient-to-tr from-sky-500 to-blue-600 text-white shadow-md shadow-sky-500/30 active:scale-90 transition"
                                                     >
-                                                        <Check className="w-5 h-5 stroke-[3]" />
+                                                        <Check className="w-4.5 h-4.5 stroke-[3]" />
                                                     </button>
                                                 </div>
                                             </div>

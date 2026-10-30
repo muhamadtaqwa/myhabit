@@ -81,12 +81,12 @@ function ActionButton({
             onClick={onClick}
             aria-label={label}
             className={cn(
-                "flex items-center justify-center gap-1.5 h-11 rounded-xl text-xs font-bold transition touch-manipulation",
+                "flex items-center justify-center gap-1.5 h-9.5 rounded-xl text-xs font-bold transition touch-manipulation",
                 "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-500",
                 tones[tone],
             )}
         >
-            <Icon className={cn("w-4 h-4 stroke-[2.2]", iconClass)} />
+            <Icon className={cn("w-3.5 h-3.5 stroke-[2.2]", iconClass)} />
             <span>{label}</span>
         </button>
     );
@@ -198,28 +198,28 @@ function HabitCard({ habit, onEdit, onArchive, onDelete }) {
     return (
         <article
             className={cn(
-                "p-4 rounded-2xl bg-white dark:bg-[#131d36] border border-slate-200/80 dark:border-slate-800/80 shadow-sm",
+                "px-3.5 py-2.5 rounded-2xl bg-white dark:bg-[#131d36] border border-slate-200/80 dark:border-slate-800/80 shadow-sm",
                 habit.is_archived && "opacity-90",
             )}
         >
             {/* Ikon & judul */}
-            <div className="flex items-center gap-3.5 min-w-0">
+            <div className="flex items-center gap-3 min-w-0">
                 <div
-                    className="w-12 h-12 rounded-2xl flex items-center justify-center shrink-0"
+                    className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0"
                     style={{ backgroundColor: `${color}1f`, color }}
                 >
                     <HabitIcon
                         name={habit.icon}
-                        className="w-6 h-6 stroke-[2.2]"
+                        className="w-5 h-5 stroke-[2.2]"
                     />
                 </div>
                 <div className="min-w-0 flex-1">
-                    <h3 className="text-[15px] font-bold leading-snug text-slate-900 dark:text-white line-clamp-2 break-words">
+                    <h3 className="text-sm font-bold leading-snug text-slate-900 dark:text-white line-clamp-2 break-words">
                         {habit.title}
                     </h3>
-                    <div className="mt-1 flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
-                        <span className="inline-flex items-center gap-1 font-semibold">
-                            <TimeIcon className="w-3.5 h-3.5 text-sky-500" />
+                    <div className="mt-0.5 flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
+                        <span className="inline-flex items-center gap-1 font-semibold text-[11px]">
+                            <TimeIcon className="w-3 h-3 text-sky-500" />
                             {timeInfo.label}
                         </span>
                     </div>
@@ -227,7 +227,7 @@ function HabitCard({ habit, onEdit, onArchive, onDelete }) {
             </div>
 
             {/* Aksi: tombol berlabel agar jelas & mudah ditekan di layar sentuh */}
-            <div className="mt-4 pt-3 border-t border-slate-100 dark:border-slate-800 grid grid-cols-3 gap-2">
+            <div className="mt-2.5 pt-2 border-t border-slate-100 dark:border-slate-800 grid grid-cols-3 gap-1.5">
                 <ActionButton
                     icon={Pencil}
                     label="Edit"
@@ -320,7 +320,7 @@ function ManageContent({ habits = [] }) {
                 {displayedHabits.length === 0 ? (
                     <EmptyState tab={tab} onCreate={openNewHabit} />
                 ) : (
-                    <div className="space-y-3 sm:grid sm:grid-cols-2 sm:gap-3 sm:space-y-0">
+                    <div className="space-y-2 sm:grid sm:grid-cols-2 sm:gap-2.5 sm:space-y-0">
                         {displayedHabits.map((habit) => (
                             <HabitCard
                                 key={habit.id}

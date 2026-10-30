@@ -14,7 +14,7 @@ export function TimeDistributionChart({ distribution = [], totalHabits = 0 }) {
     let accumulatedPercentage = 0;
 
     return (
-        <div className="p-4 rounded-3xl bg-white dark:bg-[#131d36] border border-slate-200/80 dark:border-slate-800/80 shadow-xs space-y-3">
+        <div className="px-3.5 py-3 rounded-2xl bg-white dark:bg-[#131d36] border border-slate-200/80 dark:border-slate-800/80 shadow-xs space-y-2.5">
             {/* Header */}
             <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">

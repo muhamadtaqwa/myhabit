@@ -91,18 +91,18 @@ export function HabitCard({ habit, selectedDate, onEdit }) {
     return (
         <div
             className={cn(
-                'group relative flex items-center justify-between p-4 rounded-2xl border transition-all duration-200',
+                'group relative flex items-center justify-between px-3.5 py-2.5 rounded-2xl border transition-all duration-200',
                 isCompleted
                     ? 'bg-slate-50/80 dark:bg-[#0f172a]/40 border-slate-200/60 dark:border-slate-800/40 opacity-75'
                     : 'bg-white dark:bg-[#131d36] border-slate-200/80 dark:border-slate-800/80 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-md hover:border-sky-200 dark:hover:border-sky-800/50'
             )}
         >
             {/* Left: Icon & Info */}
-            <div className="flex items-center gap-3.5 flex-1 min-w-0 pr-3">
+            <div className="flex items-center gap-3 flex-1 min-w-0 pr-2.5">
                 {/* Habit Icon Container (Soft Tinted Squircle) */}
                 <div
                     className={cn(
-                        'w-12 h-12 rounded-2xl flex items-center justify-center flex-shrink-0 transition-transform duration-200 shadow-xs',
+                        'w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 transition-transform duration-200 shadow-xs',
                         isCompleted ? 'grayscale opacity-60' : 'group-hover:scale-105'
                     )}
                     style={{
@@ -110,7 +110,7 @@ export function HabitCard({ habit, selectedDate, onEdit }) {
                         color: habit.color || '#0284c7',
                     }}
                 >
-                    <HabitIcon name={habit.icon} className="w-5 h-5 stroke-[2.2]" />
+                    <HabitIcon name={habit.icon} className="w-4.5 h-4.5 stroke-[2.2]" />
                 </div>
 
                 {/* Content: Strictly 2 Clean Lines */}
@@ -128,9 +128,9 @@ export function HabitCard({ habit, selectedDate, onEdit }) {
                     </h3>
 
                     {/* Baris 2: Waktu & Streak (Sejajar dalam 1 baris) */}
-                    <div className="flex items-center gap-2 mt-1 min-w-0 text-[11px]">
+                    <div className="flex items-center gap-1.5 mt-0.5 min-w-0 text-[11px]">
                         {/* Time tag */}
-                        <span className="inline-flex items-center gap-1 text-slate-500 dark:text-slate-400 font-semibold bg-slate-100 dark:bg-slate-800/70 px-2 py-0.5 rounded-md flex-shrink-0">
+                        <span className="inline-flex items-center gap-1 text-slate-500 dark:text-slate-400 font-semibold bg-slate-100 dark:bg-slate-800/70 px-1.5 py-0.5 rounded-md flex-shrink-0">
                             <TimeIconComponent className="w-3 h-3 text-sky-500" />
                             <span>{timeInfo.label}</span>
                         </span>
@@ -148,7 +148,7 @@ export function HabitCard({ habit, selectedDate, onEdit }) {
             <div className="flex items-center gap-1 flex-shrink-0">
                 {/* Menu dropdown */}
                 <DropdownMenu>
-                    <DropdownMenuTrigger className="p-2 rounded-xl text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition">
+                    <DropdownMenuTrigger className="p-1.5 rounded-lg text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition">
                         <MoreVertical className="w-4 h-4" />
                         <span className="sr-only">Menu</span>
                     </DropdownMenuTrigger>
@@ -179,7 +179,7 @@ export function HabitCard({ habit, selectedDate, onEdit }) {
                     disabled={isUpdating}
                     aria-label={`Tandai ${habit.title} ${isCompleted ? 'belum selesai' : 'selesai'}`}
                     className={cn(
-                        'w-11 h-11 rounded-2xl flex items-center justify-center transition-all duration-200 active:scale-90',
+                        'w-9.5 h-9.5 rounded-xl flex items-center justify-center transition-all duration-200 active:scale-90',
                         isCompleted
                             ? 'bg-gradient-to-tr from-sky-500 to-blue-600 text-white shadow-md shadow-sky-500/30 ring-2 ring-sky-400/20'
                             : 'bg-slate-50 dark:bg-slate-800/80 text-slate-300 dark:text-slate-600 hover:border-sky-300 hover:bg-sky-50/50 dark:hover:bg-sky-950/20 border-2 border-slate-200 dark:border-slate-700'
@@ -187,7 +187,7 @@ export function HabitCard({ habit, selectedDate, onEdit }) {
                 >
                     <Check
                         className={cn(
-                            'w-5 h-5 transition-transform duration-200 stroke-[3]',
+                            'w-4.5 h-4.5 transition-transform duration-200 stroke-[3]',
                             isCompleted ? 'scale-100' : 'scale-75 opacity-30'
                         )}
                     />
