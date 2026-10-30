@@ -10,7 +10,7 @@ import UpdateProfileInformationForm from './Partials/UpdateProfileInformationFor
 export default function Edit({ mustVerifyEmail, status }) {
     return (
         <AppLayout title="Profil Pengguna">
-            <header className="px-5 pt-6 pb-4 bg-white/80 dark:bg-[#0b132b]/80 backdrop-blur-md border-b border-slate-200/80 dark:border-slate-800/80 sticky top-0 z-30">
+            <header className="px-5 pt-6 pb-4 md:px-0 md:pt-2 md:pb-4 bg-white/80 dark:bg-[#0b132b]/80 md:bg-transparent md:dark:bg-transparent backdrop-blur-md md:backdrop-blur-none border-b border-slate-200/80 dark:border-slate-800/80 md:border-b-0 sticky md:static top-0 z-30">
                 <div className="flex items-center justify-between">
                     <div className="flex items-center gap-3">
                         <Link
@@ -20,7 +20,7 @@ export default function Edit({ mustVerifyEmail, status }) {
                             <ArrowLeft className="w-5 h-5 stroke-[2.2]" />
                         </Link>
                         <div>
-                            <h1 className="text-base font-extrabold tracking-tight text-slate-900 dark:text-white leading-tight">
+                            <h1 className="text-base md:text-xl font-extrabold md:font-black tracking-tight text-slate-900 dark:text-white leading-tight">
                                 Pengaturan Akun
                             </h1>
                             <p className="text-xs text-slate-500 dark:text-slate-400 font-medium">
@@ -29,11 +29,13 @@ export default function Edit({ mustVerifyEmail, status }) {
                         </div>
                     </div>
 
-                    <ThemeToggle className="bg-white/80 dark:bg-slate-800/80 border-slate-200/80 dark:border-slate-700/80 shadow-xs" />
+                    <div className="md:hidden">
+                        <ThemeToggle className="bg-white/80 dark:bg-slate-800/80 border-slate-200/80 dark:border-slate-700/80 shadow-xs" />
+                    </div>
                 </div>
             </header>
 
-            <main className="flex-1 px-4 py-5 space-y-4">
+            <main className="flex-1 px-4 md:px-0 py-5 space-y-4 md:max-w-2xl">
                 <div className="p-4 sm:p-6 rounded-3xl bg-white dark:bg-[#131d36] border border-slate-200/80 dark:border-slate-800/80 shadow-xs">
                     <UpdateProfileInformationForm
                         mustVerifyEmail={mustVerifyEmail}

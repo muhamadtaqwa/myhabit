@@ -26,14 +26,14 @@ const TIME_LABELS = {
 
 export function ManageHeader({ onOpenNewHabit }) {
     return (
-        <header className="sticky top-0 z-30 px-4 pb-3 pt-[max(1rem,env(safe-area-inset-top))] bg-white/90 dark:bg-[#0b132b]/90 backdrop-blur-md border-b border-slate-200/80 dark:border-slate-800/80">
+        <header className="sticky md:static top-0 z-30 px-4 md:px-0 pb-3 md:pb-4 pt-[max(1rem,env(safe-area-inset-top))] md:pt-2 bg-white/90 dark:bg-[#0b132b]/90 md:bg-transparent md:dark:bg-transparent backdrop-blur-md md:backdrop-blur-none border-b border-slate-200/80 dark:border-slate-800/80 md:border-b-0">
             <div className="flex items-center justify-between gap-3">
                 <div className="flex items-center gap-3 min-w-0">
                     <div className="w-10 h-10 shrink-0 rounded-2xl bg-gradient-to-tr from-blue-600 to-sky-500 flex items-center justify-center text-white shadow-md shadow-sky-500/25">
                         <SlidersHorizontal className="w-5 h-5 stroke-[2.4]" />
                     </div>
                     <div className="min-w-0">
-                        <h1 className="text-base font-extrabold tracking-tight text-slate-900 dark:text-white leading-tight truncate">
+                        <h1 className="text-base md:text-xl font-extrabold md:font-black tracking-tight text-slate-900 dark:text-white leading-tight truncate">
                             Kelola Habit
                         </h1>
                         <p className="text-xs text-slate-500 dark:text-slate-400 font-medium truncate">
@@ -43,16 +43,18 @@ export function ManageHeader({ onOpenNewHabit }) {
                 </div>
 
                 <div className="flex items-center gap-2 shrink-0">
-                    <ThemeToggle className="bg-white/80 dark:bg-slate-800/80 border-slate-200/80 dark:border-slate-700/80 shadow-sm" />
+                    <div className="md:hidden">
+                        <ThemeToggle className="bg-white/80 dark:bg-slate-800/80 border-slate-200/80 dark:border-slate-700/80 shadow-sm" />
+                    </div>
 
                     <button
                         type="button"
                         onClick={onOpenNewHabit}
                         aria-label="Tambah habit baru"
-                        className="inline-flex items-center justify-center gap-1.5 h-11 min-w-11 px-3 sm:px-4 rounded-2xl font-bold text-sm bg-gradient-to-r from-blue-600 to-sky-500 text-white shadow-md shadow-sky-500/25 active:scale-95 transition touch-manipulation focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-500"
+                        className="inline-flex items-center justify-center gap-1.5 h-10 min-w-10 px-3 sm:px-4 rounded-2xl font-bold text-xs bg-gradient-to-r from-blue-600 to-sky-500 text-white shadow-md shadow-sky-500/25 active:scale-95 transition touch-manipulation focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-500"
                     >
-                        <Plus className="w-5 h-5 stroke-[2.5]" />
-                        <span className="hidden min-[380px]:inline">Baru</span>
+                        <Plus className="w-4 h-4 stroke-[2.5]" />
+                        <span>Baru</span>
                     </button>
                 </div>
             </div>
@@ -289,13 +291,13 @@ function ManageContent({ habits = [] }) {
         <div className="flex-1 flex flex-col">
             <ManageHeader onOpenNewHabit={openNewHabit} />
 
-            {/* pb besar agar konten tidak tertutup bottom navigation / home indicator */}
-            <main className="flex-1 px-4 pt-4 pb-[calc(6rem+env(safe-area-inset-bottom))] space-y-4">
+            {/* pb besar di mobile agar konten tidak tertutup bottom navigation / home indicator */}
+            <main className="flex-1 px-4 md:px-0 pt-4 pb-[calc(6rem+env(safe-area-inset-bottom))] md:pb-8 space-y-4">
                 {/* Tabs */}
                 <div
                     role="tablist"
                     aria-label="Filter habit"
-                    className="flex p-1.5 gap-1 rounded-2xl bg-slate-200/60 dark:bg-[#131d36]"
+                    className="flex p-1.5 gap-1 rounded-2xl bg-slate-200/60 dark:bg-[#131d36] w-full md:max-w-md"
                 >
                     {tabs.map((t) => (
                         <button

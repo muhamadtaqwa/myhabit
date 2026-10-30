@@ -10,7 +10,7 @@ export function BottomNav({ onOpenNewHabit }) {
     const isManage = route().current('habits.manage');
 
     return (
-        <nav className="fixed bottom-0 inset-x-0 max-w-md mx-auto z-40 bg-white/95 dark:bg-[#0b132b]/95 backdrop-blur-xl border-t border-slate-200/70 dark:border-slate-800/80 px-3 py-2 shadow-2xl pb-safe">
+        <nav className="fixed bottom-0 inset-x-0 max-w-md mx-auto z-40 bg-white/95 dark:bg-[#0b132b]/95 backdrop-blur-xl border-t border-slate-200/70 dark:border-slate-800/80 px-3 py-2 shadow-2xl pb-safe md:hidden">
             <div className="flex items-center justify-between">
                 {/* 1. Hari Ini */}
                 <Link

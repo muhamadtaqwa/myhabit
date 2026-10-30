@@ -18,9 +18,21 @@ export function MobileHeader() {
     const firstName = user?.name ? user.name.split(' ')[0] : 'Pengguna';
 
     return (
-        <header className="px-5 pt-6 pb-2 relative z-20">
-            {/* Top Row: Brand & Actions */}
-            <div className="flex items-center justify-between">
+        <header className="px-5 pt-6 pb-2 md:pt-4 md:px-0 relative z-20">
+            {/* Desktop View Header */}
+            <div className="hidden md:flex items-center justify-between pb-4 mb-2 border-b border-slate-200/70 dark:border-slate-800/80">
+                <div>
+                    <h1 className="text-2xl font-black text-slate-900 dark:text-white tracking-tight">
+                        Halo, {user?.name || 'Pengguna'}
+                    </h1>
+                    <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
+                        Pantau konsistensi dan selesaikan kebiasaan harian Anda hari ini.
+                    </p>
+                </div>
+            </div>
+
+            {/* Mobile View Header */}
+            <div className="flex md:hidden items-center justify-between">
                 <div className="flex items-center gap-2.5">
                     <AppLogo size="sm" showText={false} />
                     <div>

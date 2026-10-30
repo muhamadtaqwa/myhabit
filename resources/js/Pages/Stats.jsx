@@ -10,14 +10,14 @@ import { cn } from '@/lib/utils';
 
 export function StatsHeader() {
     return (
-        <header className="px-5 pt-6 pb-4 bg-white/80 dark:bg-[#0b132b]/80 backdrop-blur-md border-b border-slate-200/80 dark:border-slate-800/80 sticky top-0 z-30">
+        <header className="px-5 pt-6 pb-4 md:px-0 md:pt-2 md:pb-4 bg-white/80 dark:bg-[#0b132b]/80 md:bg-transparent md:dark:bg-transparent backdrop-blur-md md:backdrop-blur-none border-b border-slate-200/80 dark:border-slate-800/80 md:border-b-0 sticky md:static top-0 z-30">
             <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2.5">
-                    <div className="w-9 h-9 rounded-2xl bg-gradient-to-tr from-blue-600 to-sky-500 flex items-center justify-center text-white shadow-md shadow-sky-500/25">
+                    <div className="w-9 h-9 md:w-10 md:h-10 rounded-2xl bg-gradient-to-tr from-blue-600 to-sky-500 flex items-center justify-center text-white shadow-md shadow-sky-500/25">
                         <BarChart3 className="w-5 h-5 stroke-[2.4]" />
                     </div>
                     <div>
-                        <h1 className="text-base font-extrabold tracking-tight text-slate-900 dark:text-white leading-tight">
+                        <h1 className="text-base md:text-xl font-extrabold md:font-black tracking-tight text-slate-900 dark:text-white leading-tight">
                             Statistik & Progres
                         </h1>
                         <p className="text-xs text-slate-500 dark:text-slate-400 font-medium">
@@ -26,7 +26,9 @@ export function StatsHeader() {
                     </div>
                 </div>
 
-                <ThemeToggle className="bg-white/80 dark:bg-slate-800/80 border-slate-200/80 dark:border-slate-700/80 shadow-xs" />
+                <div className="md:hidden">
+                    <ThemeToggle className="bg-white/80 dark:bg-slate-800/80 border-slate-200/80 dark:border-slate-700/80 shadow-xs" />
+                </div>
             </div>
         </header>
     );
@@ -42,9 +44,9 @@ export default function Stats({
         <AppLayout title="Statistik">
             <StatsHeader />
 
-            <main className="flex-1 px-4 py-4 space-y-4">
+            <main className="flex-1 px-4 py-4 md:px-0 space-y-4">
                 {/* 4 Key Metrics Grid */}
-                <div className="grid grid-cols-2 gap-2.5">
+                <div className="grid grid-cols-2 lg:grid-cols-4 gap-2.5 md:gap-3.5">
                     {/* Active Habits */}
                     <div className="px-3.5 py-2.5 rounded-2xl bg-white dark:bg-[#131d36] border border-slate-200/80 dark:border-slate-800/80 shadow-xs">
                         <div className="flex items-center justify-between text-slate-400 mb-1.5">
@@ -108,14 +110,17 @@ export default function Stats({
                     </div>
                 </div>
 
-                {/* 1. VISUAL INTERACTIVE BAR CHART */}
-                <WeeklyBarChart data={weeklyMatrix} average={metrics.weekly_average || 0} />
+                {/* CHARTS ROW (Side-by-side on Desktop) */}
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-3.5 md:gap-4">
+                    {/* 1. VISUAL INTERACTIVE BAR CHART */}
+                    <WeeklyBarChart data={weeklyMatrix} average={metrics.weekly_average || 0} />
 
-                {/* 2. TIME DISTRIBUTION CHART */}
-                <TimeDistributionChart
-                    distribution={timeDistribution}
-                    totalHabits={metrics.total_habits || 0}
-                />
+                    {/* 2. TIME DISTRIBUTION CHART */}
+                    <TimeDistributionChart
+                        distribution={timeDistribution}
+                        totalHabits={metrics.total_habits || 0}
+                    />
+                </div>
 
                 {/* 3. TASK COMPLETION SNAPSHOT */}
                 {metrics.tasks_total > 0 && (
@@ -164,7 +169,7 @@ export default function Stats({
                             Belum ada habit aktif untuk ditampilkan.
                         </p>
                     ) : (
-                        <div className="space-y-2">
+                        <div className="space-y-2 md:grid md:grid-cols-2 md:gap-3 md:space-y-0">
                             {habits.map((habit) => (
                                 <div
                                     key={habit.id}

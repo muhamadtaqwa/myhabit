@@ -11,7 +11,7 @@ export function TimeFilterChips({ activeFilter, onSelectFilter }) {
     ];
 
     return (
-        <div className="grid grid-cols-4 gap-1.5 w-full py-0.5">
+        <div className="grid grid-cols-4 gap-1.5 w-full md:max-w-md py-0.5">
             {filters.map((f) => {
                 const IconComponent = f.icon;
                 const isActive = activeFilter === f.id;

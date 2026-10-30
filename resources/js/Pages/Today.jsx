@@ -30,7 +30,7 @@ function TodayContent({ habits = [], selectedDate, dateStrip = [], dailySummary 
             <MobileHeader />
 
             {/* Content Area */}
-            <main className="flex-1 px-4 pt-1 pb-4 space-y-3">
+            <main className="flex-1 px-4 pt-1 pb-4 md:px-0 space-y-3.5">
                 {/* Featured Hero Progress Card */}
                 <HeroProgressCard selectedDate={selectedDate} dailySummary={dailySummary} />
 
@@ -142,7 +142,7 @@ function TodayContent({ habits = [], selectedDate, dateStrip = [], dailySummary 
                                         <span>Belum ({pendingHabits.length})</span>
                                     </p>
                                 </div>
-                                <div className="space-y-2">
+                                <div className="space-y-2 md:grid md:grid-cols-2 md:gap-3 md:space-y-0">
                                     {pendingHabits.map((habit) => (
                                         <HabitCard
                                             key={habit.id}
@@ -164,7 +164,7 @@ function TodayContent({ habits = [], selectedDate, dateStrip = [], dailySummary 
                                         <span>Selesai ({completedHabits.length})</span>
                                     </p>
                                 </div>
-                                <div className="space-y-2">
+                                <div className="space-y-2 md:grid md:grid-cols-2 md:gap-3 md:space-y-0">
                                     {completedHabits.map((habit) => (
                                         <HabitCard
                                             key={habit.id}
