@@ -1,8 +1,11 @@
-import React from 'react';
-import { Calendar, CheckCircle2, Flame, TrendingUp } from 'lucide-react';
-import { formatIndonesianDate } from '@/lib/utils';
+import React from "react";
+import { Calendar, CheckCircle2, Flame, TrendingUp } from "lucide-react";
+import { formatIndonesianDate } from "@/lib/utils";
 
-export function HeroProgressCard({ selectedDate, dailySummary = { total: 0, completed: 0, percentage: 0 } }) {
+export function HeroProgressCard({
+    selectedDate,
+    dailySummary = { total: 0, completed: 0, percentage: 0 },
+}) {
     const formattedDate = formatIndonesianDate(selectedDate);
     const { total = 0, completed = 0, percentage = 0 } = dailySummary;
 
@@ -21,7 +24,6 @@ export function HeroProgressCard({ selectedDate, dailySummary = { total: 0, comp
 
                 <span className="inline-flex items-center gap-1 text-[10px] font-bold text-sky-100 uppercase tracking-wider">
                     <TrendingUp className="w-3.5 h-3.5" />
-                    <span>Progres Harian</span>
                 </span>
             </div>
 
@@ -29,14 +31,16 @@ export function HeroProgressCard({ selectedDate, dailySummary = { total: 0, comp
             <div className="relative z-10 flex items-end justify-between my-1">
                 <div>
                     <h2 className="text-xl font-black tracking-tight leading-none">
-                        {total > 0 ? `${completed} dari ${total} Selesai` : 'Belum Ada Habit'}
+                        {total > 0
+                            ? `${completed} dari ${total} Selesai`
+                            : "Belum Ada Habit"}
                     </h2>
                     <p className="text-[11px] text-sky-100/90 font-medium mt-1">
                         {total === 0
-                            ? 'Mulai buat habit pertama untuk melacak konsistensi.'
+                            ? "Mulai buat habit pertama untuk melacak konsistensi."
                             : percentage === 100
-                            ? 'Luar biasa! Semua habit hari ini telah tuntas.'
-                            : 'Terus pertahankan ritme kebiasaan positif Anda.'}
+                              ? "Luar biasa! Semua habit hari ini telah tuntas."
+                              : "Terus pertahankan ritme kebiasaan positif Anda."}
                     </p>
                 </div>
 

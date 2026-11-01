@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
-import { router } from '@inertiajs/react';
-import toast from 'react-hot-toast';
-import { AppLayout } from '@/Layouts/AppLayout';
-import { ThemeToggle } from '@/Components/ui/ThemeToggle';
-import { TaskFormDrawer } from '@/Components/Tasks/TaskFormDrawer';
+import React, { useState } from "react";
+import { router } from "@inertiajs/react";
+import toast from "react-hot-toast";
+import { AppLayout } from "@/Layouts/AppLayout";
+import { ThemeToggle } from "@/Components/ui/ThemeToggle";
+import { TaskFormDrawer } from "@/Components/Tasks/TaskFormDrawer";
 import {
     Calendar,
     Check,
@@ -15,15 +15,15 @@ import {
     Pencil,
     Plus,
     Trash2,
-} from 'lucide-react';
+} from "lucide-react";
 import {
     DropdownMenu,
     DropdownMenuContent,
     DropdownMenuItem,
     DropdownMenuSeparator,
     DropdownMenuTrigger,
-} from '@/Components/ui/DropdownMenu';
-import { cn, formatShortDate } from '@/lib/utils';
+} from "@/Components/ui/DropdownMenu";
+import { cn, formatShortDate } from "@/lib/utils";
 
 export function TasksHeader({ onOpenNewTask }) {
     return (
@@ -37,9 +37,6 @@ export function TasksHeader({ onOpenNewTask }) {
                         <h1 className="text-base md:text-xl font-extrabold md:font-black tracking-tight text-slate-900 dark:text-white leading-tight">
                             Tugas Harian
                         </h1>
-                        <p className="text-xs text-slate-500 dark:text-slate-400 font-medium">
-                            Kelola to-do dan pekerjaan Anda hari ini.
-                        </p>
                     </div>
                 </div>
 
@@ -62,7 +59,10 @@ export function TasksHeader({ onOpenNewTask }) {
     );
 }
 
-export default function TasksIndex({ tasks = [], summary = { total: 0, pending: 0, completed: 0 } }) {
+export default function TasksIndex({
+    tasks = [],
+    summary = { total: 0, pending: 0, completed: 0 },
+}) {
     const [drawerOpen, setDrawerOpen] = useState(false);
     const [editingTask, setEditingTask] = useState(null);
 
@@ -88,22 +88,33 @@ export default function TasksIndex({ tasks = [], summary = { total: 0, pending: 
         }
 
         router.post(
-            route('tasks.toggle', task.id),
+            route("tasks.toggle", task.id),
             {},
-            { preserveScroll: true }
+            { preserveScroll: true },
         );
     };
 
     const handleDelete = (task) => {
         if (confirm(`Hapus tugas "${task.title}"?`)) {
-            router.delete(route('tasks.destroy', task.id), { preserveScroll: true });
+            router.delete(route("tasks.destroy", task.id), {
+                preserveScroll: true,
+            });
         }
     };
 
     const priorityBadges = {
-        high: { label: 'Tinggi', class: 'bg-rose-50 text-rose-600 dark:bg-rose-950/40 dark:text-rose-400 border-rose-200 dark:border-rose-800' },
-        medium: { label: 'Sedang', class: 'bg-sky-50 text-sky-600 dark:bg-sky-950/40 dark:text-sky-400 border-sky-200 dark:border-sky-800' },
-        low: { label: 'Rendah', class: 'bg-slate-100 text-slate-600 dark:bg-slate-800 dark:text-slate-400 border-slate-200 dark:border-slate-700' },
+        high: {
+            label: "Tinggi",
+            class: "bg-rose-50 text-rose-600 dark:bg-rose-950/40 dark:text-rose-400 border-rose-200 dark:border-rose-800",
+        },
+        medium: {
+            label: "Sedang",
+            class: "bg-sky-50 text-sky-600 dark:bg-sky-950/40 dark:text-sky-400 border-sky-200 dark:border-sky-800",
+        },
+        low: {
+            label: "Rendah",
+            class: "bg-slate-100 text-slate-600 dark:bg-slate-800 dark:text-slate-400 border-slate-200 dark:border-slate-700",
+        },
     };
 
     return (
@@ -155,7 +166,8 @@ export default function TasksIndex({ tasks = [], summary = { total: 0, pending: 
                                 Belum Ada Tugas
                             </h2>
                             <p className="text-xs text-slate-500 dark:text-slate-400 mt-1 max-w-xs leading-relaxed">
-                                Catat pekerjaan atau to-do list yang perlu diselesaikan hari ini.
+                                Catat pekerjaan atau to-do list yang perlu
+                                diselesaikan hari ini.
                             </p>
                             <button
                                 type="button"
@@ -176,7 +188,9 @@ export default function TasksIndex({ tasks = [], summary = { total: 0, pending: 
                                     </p>
                                     <div className="space-y-2 md:grid md:grid-cols-2 md:gap-3 md:space-y-0">
                                         {pendingTasks.map((task) => {
-                                            const priority = priorityBadges[task.priority] || priorityBadges.medium;
+                                            const priority =
+                                                priorityBadges[task.priority] ||
+                                                priorityBadges.medium;
                                             return (
                                                 <div
                                                     key={task.id}
@@ -191,19 +205,30 @@ export default function TasksIndex({ tasks = [], summary = { total: 0, pending: 
 
                                                         {task.description && (
                                                             <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5 line-clamp-2">
-                                                                {task.description}
+                                                                {
+                                                                    task.description
+                                                                }
                                                             </p>
                                                         )}
 
                                                         <div className="flex items-center gap-2 mt-1.5 flex-wrap">
-                                                            <span className={cn('text-[10px] font-bold px-1.5 py-0.5 rounded-md border', priority.class)}>
+                                                            <span
+                                                                className={cn(
+                                                                    "text-[10px] font-bold px-1.5 py-0.5 rounded-md border",
+                                                                    priority.class,
+                                                                )}
+                                                            >
                                                                 {priority.label}
                                                             </span>
 
                                                             {task.due_date && (
                                                                 <span className="text-[11px] text-slate-400 font-medium flex items-center gap-1">
                                                                     <Calendar className="w-3 h-3 text-sky-500" />
-                                                                    <span>{formatShortDate(task.due_date)}</span>
+                                                                    <span>
+                                                                        {formatShortDate(
+                                                                            task.due_date,
+                                                                        )}
+                                                                    </span>
                                                                 </span>
                                                             )}
                                                         </div>
@@ -214,13 +239,30 @@ export default function TasksIndex({ tasks = [], summary = { total: 0, pending: 
                                                             <DropdownMenuTrigger className="p-1.5 rounded-lg text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">
                                                                 <MoreVertical className="w-4 h-4" />
                                                             </DropdownMenuTrigger>
-                                                            <DropdownMenuContent align="end" className="rounded-2xl p-1.5 shadow-xl border-slate-200 dark:border-slate-800">
-                                                                <DropdownMenuItem onClick={() => handleEditTask(task)} className="rounded-xl py-2">
+                                                            <DropdownMenuContent
+                                                                align="end"
+                                                                className="rounded-2xl p-1.5 shadow-xl border-slate-200 dark:border-slate-800"
+                                                            >
+                                                                <DropdownMenuItem
+                                                                    onClick={() =>
+                                                                        handleEditTask(
+                                                                            task,
+                                                                        )
+                                                                    }
+                                                                    className="rounded-xl py-2"
+                                                                >
                                                                     <Pencil className="w-3.5 h-3.5 mr-2 text-slate-500" />
                                                                     Edit Tugas
                                                                 </DropdownMenuItem>
                                                                 <DropdownMenuSeparator className="bg-slate-100 dark:bg-slate-800" />
-                                                                <DropdownMenuItem onClick={() => handleDelete(task)} className="text-rose-600 dark:text-rose-400 rounded-xl py-2">
+                                                                <DropdownMenuItem
+                                                                    onClick={() =>
+                                                                        handleDelete(
+                                                                            task,
+                                                                        )
+                                                                    }
+                                                                    className="text-rose-600 dark:text-rose-400 rounded-xl py-2"
+                                                                >
                                                                     <Trash2 className="w-3.5 h-3.5 mr-2 text-rose-500" />
                                                                     Hapus Tugas
                                                                 </DropdownMenuItem>
@@ -230,7 +272,11 @@ export default function TasksIndex({ tasks = [], summary = { total: 0, pending: 
                                                         {/* Checkbox */}
                                                         <button
                                                             type="button"
-                                                            onClick={() => handleToggle(task)}
+                                                            onClick={() =>
+                                                                handleToggle(
+                                                                    task,
+                                                                )
+                                                            }
                                                             aria-label="Tandai selesai"
                                                             className="w-9.5 h-9.5 rounded-xl flex items-center justify-center bg-slate-50 dark:bg-slate-800/80 border-2 border-slate-200 dark:border-slate-700 hover:border-sky-400 text-slate-300 dark:text-slate-600 active:scale-90 transition"
                                                         >
@@ -249,7 +295,9 @@ export default function TasksIndex({ tasks = [], summary = { total: 0, pending: 
                                 <div className="space-y-2 pt-1">
                                     <p className="text-[11px] font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider px-1 flex items-center gap-1.5">
                                         <CheckCircle2 className="w-3.5 h-3.5 stroke-[2.5]" />
-                                        <span>Selesai ({completedTasks.length})</span>
+                                        <span>
+                                            Selesai ({completedTasks.length})
+                                        </span>
                                     </p>
                                     <div className="space-y-2 md:grid md:grid-cols-2 md:gap-3 md:space-y-0">
                                         {completedTasks.map((task) => (
@@ -271,7 +319,9 @@ export default function TasksIndex({ tasks = [], summary = { total: 0, pending: 
                                                 <div className="flex items-center gap-1 flex-shrink-0">
                                                     <button
                                                         type="button"
-                                                        onClick={() => handleDelete(task)}
+                                                        onClick={() =>
+                                                            handleDelete(task)
+                                                        }
                                                         className="p-1.5 rounded-lg text-slate-400 hover:text-rose-600 transition"
                                                     >
                                                         <Trash2 className="w-4 h-4 stroke-[2]" />
@@ -279,7 +329,9 @@ export default function TasksIndex({ tasks = [], summary = { total: 0, pending: 
 
                                                     <button
                                                         type="button"
-                                                        onClick={() => handleToggle(task)}
+                                                        onClick={() =>
+                                                            handleToggle(task)
+                                                        }
                                                         className="w-9.5 h-9.5 rounded-xl flex items-center justify-center bg-gradient-to-tr from-sky-500 to-blue-600 text-white shadow-md shadow-sky-500/30 active:scale-90 transition"
                                                     >
                                                         <Check className="w-4.5 h-4.5 stroke-[3]" />

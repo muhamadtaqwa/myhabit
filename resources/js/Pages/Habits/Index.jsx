@@ -36,9 +36,6 @@ export function ManageHeader({ onOpenNewHabit }) {
                         <h1 className="text-base md:text-xl font-extrabold md:font-black tracking-tight text-slate-900 dark:text-white leading-tight truncate">
                             Kelola Habit
                         </h1>
-                        <p className="text-xs text-slate-500 dark:text-slate-400 font-medium truncate">
-                            Atur, ubah, atau arsipkan kebiasaan Anda.
-                        </p>
                     </div>
                 </div>
 

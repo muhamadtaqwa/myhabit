@@ -1,12 +1,20 @@
-import React from 'react';
-import { AppLayout } from '@/Layouts/AppLayout';
-import { HabitIcon } from '@/lib/icons';
-import { StreakBadge } from '@/Components/Habits/StreakBadge';
-import { ThemeToggle } from '@/Components/ui/ThemeToggle';
-import { WeeklyBarChart } from '@/Components/Stats/WeeklyBarChart';
-import { TimeDistributionChart } from '@/Components/Stats/TimeDistributionChart';
-import { Award, BarChart3, CheckCircle, CheckSquare, Clock, Flame, Target } from 'lucide-react';
-import { cn } from '@/lib/utils';
+import React from "react";
+import { AppLayout } from "@/Layouts/AppLayout";
+import { HabitIcon } from "@/lib/icons";
+import { StreakBadge } from "@/Components/Habits/StreakBadge";
+import { ThemeToggle } from "@/Components/ui/ThemeToggle";
+import { WeeklyBarChart } from "@/Components/Stats/WeeklyBarChart";
+import { TimeDistributionChart } from "@/Components/Stats/TimeDistributionChart";
+import {
+    Award,
+    BarChart3,
+    CheckCircle,
+    CheckSquare,
+    Clock,
+    Flame,
+    Target,
+} from "lucide-react";
+import { cn } from "@/lib/utils";
 
 export function StatsHeader() {
     return (
@@ -20,9 +28,6 @@ export function StatsHeader() {
                         <h1 className="text-base md:text-xl font-extrabold md:font-black tracking-tight text-slate-900 dark:text-white leading-tight">
                             Statistik & Progres
                         </h1>
-                        <p className="text-xs text-slate-500 dark:text-slate-400 font-medium">
-                            Pantau konsistensi dan grafik kebiasaan Anda.
-                        </p>
                     </div>
                 </div>
 
@@ -74,7 +79,9 @@ export default function Stats({
                         </div>
                         <p className="text-xl font-black text-slate-900 dark:text-white flex items-baseline gap-1">
                             <span>{metrics.best_current_streak || 0}</span>
-                            <span className="text-xs font-semibold text-slate-400">hari</span>
+                            <span className="text-xs font-semibold text-slate-400">
+                                hari
+                            </span>
                         </p>
                     </div>
 
@@ -90,7 +97,9 @@ export default function Stats({
                         </div>
                         <p className="text-xl font-black text-slate-900 dark:text-white flex items-baseline gap-1">
                             <span>{metrics.best_all_time_streak || 0}</span>
-                            <span className="text-xs font-semibold text-slate-400">hari</span>
+                            <span className="text-xs font-semibold text-slate-400">
+                                hari
+                            </span>
                         </p>
                     </div>
 
@@ -113,7 +122,10 @@ export default function Stats({
                 {/* CHARTS ROW (Side-by-side on Desktop) */}
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-3.5 md:gap-4">
                     {/* 1. VISUAL INTERACTIVE BAR CHART */}
-                    <WeeklyBarChart data={weeklyMatrix} average={metrics.weekly_average || 0} />
+                    <WeeklyBarChart
+                        data={weeklyMatrix}
+                        average={metrics.weekly_average || 0}
+                    />
 
                     {/* 2. TIME DISTRIBUTION CHART */}
                     <TimeDistributionChart
@@ -152,8 +164,21 @@ export default function Stats({
                         </div>
 
                         <div className="flex items-center justify-between text-xs text-slate-500 pt-0.5">
-                            <span>Selesai: <strong className="text-slate-800 dark:text-slate-200">{metrics.tasks_completed}</strong> tugas</span>
-                            <span>Tertunda: <strong className="text-slate-800 dark:text-slate-200">{metrics.tasks_total - metrics.tasks_completed}</strong> tugas</span>
+                            <span>
+                                Selesai:{" "}
+                                <strong className="text-slate-800 dark:text-slate-200">
+                                    {metrics.tasks_completed}
+                                </strong>{" "}
+                                tugas
+                            </span>
+                            <span>
+                                Tertunda:{" "}
+                                <strong className="text-slate-800 dark:text-slate-200">
+                                    {metrics.tasks_total -
+                                        metrics.tasks_completed}
+                                </strong>{" "}
+                                tugas
+                            </span>
                         </div>
                     </div>
                 )}
@@ -180,23 +205,39 @@ export default function Stats({
                                             <div
                                                 className="w-9.5 h-9.5 rounded-xl flex items-center justify-center flex-shrink-0 shadow-xs"
                                                 style={{
-                                                    backgroundColor: `${habit.color || '#0284c7'}18`,
-                                                    color: habit.color || '#0284c7',
+                                                    backgroundColor: `${habit.color || "#0284c7"}18`,
+                                                    color:
+                                                        habit.color ||
+                                                        "#0284c7",
                                                 }}
                                             >
-                                                <HabitIcon name={habit.icon} className="w-4.5 h-4.5 stroke-[2.2]" />
+                                                <HabitIcon
+                                                    name={habit.icon}
+                                                    className="w-4.5 h-4.5 stroke-[2.2]"
+                                                />
                                             </div>
                                             <div className="min-w-0">
                                                 <p className="text-sm font-bold text-slate-900 dark:text-white truncate">
                                                     {habit.title}
                                                 </p>
                                                 <p className="text-[11px] text-slate-500 dark:text-slate-400 font-semibold mt-0.5 capitalize">
-                                                    {habit.time_of_day === 'morning' ? 'Pagi' : habit.time_of_day === 'afternoon' ? 'Siang' : habit.time_of_day === 'evening' ? 'Malam' : 'Kapan Saja'}
+                                                    {habit.time_of_day ===
+                                                    "morning"
+                                                        ? "Pagi"
+                                                        : habit.time_of_day ===
+                                                            "afternoon"
+                                                          ? "Siang"
+                                                          : habit.time_of_day ===
+                                                              "evening"
+                                                            ? "Malam"
+                                                            : "Kapan Saja"}
                                                 </p>
                                             </div>
                                         </div>
 
-                                        <StreakBadge streak={habit.current_streak} />
+                                        <StreakBadge
+                                            streak={habit.current_streak}
+                                        />
                                     </div>
 
                                     {/* Progress info */}
@@ -204,18 +245,27 @@ export default function Stats({
                                         <div className="flex items-center justify-between text-xs font-semibold text-slate-500">
                                             <span>Konsistensi 30 Hari</span>
                                             <span className="text-slate-800 dark:text-slate-200">
-                                                {habit.completed_last_30}/30 hari ({habit.success_rate_30}%)
+                                                {habit.completed_last_30}/30
+                                                hari ({habit.success_rate_30}%)
                                             </span>
                                         </div>
                                         <div className="h-2 w-full bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
                                             <div
                                                 className="h-full bg-gradient-to-r from-blue-600 to-sky-500 rounded-full transition-all duration-500"
-                                                style={{ width: `${habit.success_rate_30}%` }}
+                                                style={{
+                                                    width: `${habit.success_rate_30}%`,
+                                                }}
                                             />
                                         </div>
                                         <div className="flex items-center justify-between text-[11px] font-medium text-slate-400 pt-0.5">
-                                            <span>Rekor: {habit.longest_streak} hari berturut-turut</span>
-                                            <span>Total Selesai: {habit.total_completions}x</span>
+                                            <span>
+                                                Rekor: {habit.longest_streak}{" "}
+                                                hari berturut-turut
+                                            </span>
+                                            <span>
+                                                Total Selesai:{" "}
+                                                {habit.total_completions}x
+                                            </span>
                                         </div>
                                     </div>
                                 </div>
