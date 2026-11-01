@@ -1,5 +1,5 @@
-import React from 'react';
-import { Clock, PieChart } from 'lucide-react';
+import React from "react";
+import { Clock, PieChart } from "lucide-react";
 
 export function TimeDistributionChart({ distribution = [], totalHabits = 0 }) {
     if (!distribution || distribution.length === 0 || totalHabits === 0) {
@@ -25,9 +25,6 @@ export function TimeDistributionChart({ distribution = [], totalHabits = 0 }) {
                         <h2 className="text-xs font-bold text-slate-900 dark:text-white">
                             Distribusi Waktu
                         </h2>
-                        <p className="text-[11px] text-slate-500 font-medium">
-                            Jadwal pelaksanaan kebiasaan Anda
-                        </p>
                     </div>
                 </div>
 
@@ -40,7 +37,11 @@ export function TimeDistributionChart({ distribution = [], totalHabits = 0 }) {
             <div className="flex items-center gap-5 pt-2">
                 {/* SVG Donut Chart */}
                 <div className="relative flex-shrink-0 flex items-center justify-center">
-                    <svg width={size} height={size} className="transform -rotate-90">
+                    <svg
+                        width={size}
+                        height={size}
+                        className="transform -rotate-90"
+                    >
                         {/* Background Ring */}
                         <circle
                             cx={size / 2}
@@ -55,7 +56,10 @@ export function TimeDistributionChart({ distribution = [], totalHabits = 0 }) {
                         {/* Time Segments */}
                         {distribution.map((item, idx) => {
                             const strokeDasharray = `${(item.percentage / 100) * circumference} ${circumference}`;
-                            const strokeDashoffset = -((accumulatedPercentage / 100) * circumference);
+                            const strokeDashoffset = -(
+                                (accumulatedPercentage / 100) *
+                                circumference
+                            );
                             accumulatedPercentage += item.percentage;
 
                             return (
@@ -65,7 +69,7 @@ export function TimeDistributionChart({ distribution = [], totalHabits = 0 }) {
                                     cy={size / 2}
                                     r={radius}
                                     fill="transparent"
-                                    stroke={item.color || '#0284c7'}
+                                    stroke={item.color || "#0284c7"}
                                     strokeWidth={strokeWidth}
                                     strokeDasharray={strokeDasharray}
                                     strokeDashoffset={strokeDashoffset}
@@ -90,19 +94,29 @@ export function TimeDistributionChart({ distribution = [], totalHabits = 0 }) {
                 {/* Legend List */}
                 <div className="flex-1 space-y-2">
                     {distribution.map((item, idx) => (
-                        <div key={idx} className="flex items-center justify-between text-xs">
+                        <div
+                            key={idx}
+                            className="flex items-center justify-between text-xs"
+                        >
                             <div className="flex items-center gap-2 min-w-0">
                                 <span
                                     className="w-2.5 h-2.5 rounded-full flex-shrink-0"
-                                    style={{ backgroundColor: item.color || '#0284c7' }}
+                                    style={{
+                                        backgroundColor:
+                                            item.color || "#0284c7",
+                                    }}
                                 />
                                 <span className="font-semibold text-slate-700 dark:text-slate-200 truncate">
                                     {item.name}
                                 </span>
                             </div>
                             <div className="flex items-center gap-1.5 flex-shrink-0 text-slate-500 font-medium">
-                                <span className="font-bold text-slate-900 dark:text-white">{item.count}</span>
-                                <span className="text-[10px] text-slate-400">({item.percentage}%)</span>
+                                <span className="font-bold text-slate-900 dark:text-white">
+                                    {item.count}
+                                </span>
+                                <span className="text-[10px] text-slate-400">
+                                    ({item.percentage}%)
+                                </span>
                             </div>
                         </div>
                     ))}

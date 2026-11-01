@@ -51,7 +51,6 @@ export function ManageHeader({ onOpenNewHabit }) {
                         className="inline-flex items-center justify-center gap-1.5 h-10 min-w-10 px-3 sm:px-4 rounded-2xl font-bold text-xs bg-gradient-to-r from-blue-600 to-sky-500 text-white shadow-md shadow-sky-500/25 active:scale-95 transition touch-manipulation focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-500"
                     >
                         <Plus className="w-4 h-4 stroke-[2.5]" />
-                        <span>Baru</span>
                     </button>
                 </div>
             </div>

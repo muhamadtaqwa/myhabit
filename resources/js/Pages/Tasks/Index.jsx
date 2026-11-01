@@ -51,7 +51,6 @@ export function TasksHeader({ onOpenNewTask }) {
                         className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-2xl font-bold text-xs bg-gradient-to-r from-blue-600 to-sky-500 text-white shadow-md shadow-sky-500/25 active:scale-95 transition"
                     >
                         <Plus className="w-4 h-4 stroke-[2.5]" />
-                        <span>Tugas</span>
                     </button>
                 </div>
             </div>
