@@ -27,20 +27,20 @@ import { cn, formatShortDate } from "@/lib/utils";
 
 export function TasksHeader({ onOpenNewTask }) {
     return (
-        <header className="px-5 pt-6 pb-4 md:px-0 md:pt-2 md:pb-4 bg-white/80 dark:bg-[#0b132b]/80 md:bg-transparent md:dark:bg-transparent backdrop-blur-md md:backdrop-blur-none border-b border-slate-200/80 dark:border-slate-800/80 md:border-b-0 sticky md:static top-0 z-30">
-            <div className="flex items-center justify-between">
-                <div className="flex items-center gap-2.5">
-                    <div className="w-9 h-9 md:w-10 md:h-10 rounded-2xl bg-gradient-to-tr from-blue-600 to-sky-500 flex items-center justify-center text-white shadow-md shadow-sky-500/25">
+        <header className="sticky md:static top-0 z-30 px-4 pt-[max(1rem,env(safe-area-inset-top))] pb-3 md:px-0 md:pt-2 md:pb-4 bg-white/80 dark:bg-[#0b132b]/80 md:bg-transparent md:dark:bg-transparent backdrop-blur-md md:backdrop-blur-none border-b border-slate-200/80 dark:border-slate-800/80 md:border-b-0">
+            <div className="flex items-center justify-between gap-3">
+                <div className="flex items-center gap-2.5 min-w-0">
+                    <div className="w-10 h-10 shrink-0 rounded-2xl bg-gradient-to-tr from-blue-600 to-sky-500 flex items-center justify-center text-white shadow-md shadow-sky-500/25">
                         <CheckSquare className="w-5 h-5 stroke-[2.4]" />
                     </div>
-                    <div>
-                        <h1 className="text-base md:text-xl font-extrabold md:font-black tracking-tight text-slate-900 dark:text-white leading-tight">
+                    <div className="min-w-0">
+                        <h1 className="text-base md:text-xl font-extrabold md:font-black tracking-tight text-slate-900 dark:text-white leading-tight truncate">
                             Tugas Harian
                         </h1>
                     </div>
                 </div>
 
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-2 shrink-0">
                     <div className="md:hidden">
                         <ThemeToggle className="bg-white/80 dark:bg-slate-800/80 border-slate-200/80 dark:border-slate-700/80 shadow-xs" />
                     </div>
@@ -48,7 +48,8 @@ export function TasksHeader({ onOpenNewTask }) {
                     <button
                         type="button"
                         onClick={onOpenNewTask}
-                        className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-2xl font-bold text-xs bg-gradient-to-r from-blue-600 to-sky-500 text-white shadow-md shadow-sky-500/25 active:scale-95 transition"
+                        aria-label="Tambah tugas baru"
+                        className="inline-flex items-center justify-center w-10 h-10 rounded-2xl bg-gradient-to-r from-blue-600 to-sky-500 text-white shadow-md shadow-sky-500/25 active:scale-95 transition touch-manipulation focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-500"
                     >
                         <Plus className="w-4 h-4 stroke-[2.5]" />
                     </button>

@@ -26,9 +26,9 @@ const TIME_LABELS = {
 
 export function ManageHeader({ onOpenNewHabit }) {
     return (
-        <header className="sticky md:static top-0 z-30 px-4 md:px-0 pb-3 md:pb-4 pt-[max(1rem,env(safe-area-inset-top))] md:pt-2 bg-white/90 dark:bg-[#0b132b]/90 md:bg-transparent md:dark:bg-transparent backdrop-blur-md md:backdrop-blur-none border-b border-slate-200/80 dark:border-slate-800/80 md:border-b-0">
+        <header className="sticky md:static top-0 z-30 px-4 pt-[max(1rem,env(safe-area-inset-top))] pb-3 md:px-0 md:pt-2 md:pb-4 bg-white/80 dark:bg-[#0b132b]/80 md:bg-transparent md:dark:bg-transparent backdrop-blur-md md:backdrop-blur-none border-b border-slate-200/80 dark:border-slate-800/80 md:border-b-0">
             <div className="flex items-center justify-between gap-3">
-                <div className="flex items-center gap-3 min-w-0">
+                <div className="flex items-center gap-2.5 min-w-0">
                     <div className="w-10 h-10 shrink-0 rounded-2xl bg-gradient-to-tr from-blue-600 to-sky-500 flex items-center justify-center text-white shadow-md shadow-sky-500/25">
                         <SlidersHorizontal className="w-5 h-5 stroke-[2.4]" />
                     </div>
@@ -41,14 +41,14 @@ export function ManageHeader({ onOpenNewHabit }) {
 
                 <div className="flex items-center gap-2 shrink-0">
                     <div className="md:hidden">
-                        <ThemeToggle className="bg-white/80 dark:bg-slate-800/80 border-slate-200/80 dark:border-slate-700/80 shadow-sm" />
+                        <ThemeToggle className="bg-white/80 dark:bg-slate-800/80 border-slate-200/80 dark:border-slate-700/80 shadow-xs" />
                     </div>
 
                     <button
                         type="button"
                         onClick={onOpenNewHabit}
                         aria-label="Tambah habit baru"
-                        className="inline-flex items-center justify-center gap-1.5 h-10 min-w-10 px-3 sm:px-4 rounded-2xl font-bold text-xs bg-gradient-to-r from-blue-600 to-sky-500 text-white shadow-md shadow-sky-500/25 active:scale-95 transition touch-manipulation focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-500"
+                        className="inline-flex items-center justify-center w-10 h-10 rounded-2xl bg-gradient-to-r from-blue-600 to-sky-500 text-white shadow-md shadow-sky-500/25 active:scale-95 transition touch-manipulation focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-500"
                     >
                         <Plus className="w-4 h-4 stroke-[2.5]" />
                     </button>
