@@ -1,5 +1,5 @@
 import React from 'react';
-import { Sparkles, SwatchBook } from 'lucide-react';
+import { SwatchBook } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 export function AppLogo({
@@ -13,24 +13,18 @@ export function AppLogo({
         sm: {
             box: 'w-7 h-7 rounded-xl',
             icon: 'w-4 h-4 stroke-[2.3]',
-            sparkleIcon: 'w-2 h-2',
-            sparklePos: '-top-0.5 -right-0.5',
             text: 'text-sm',
             gap: 'gap-2',
         },
         md: {
             box: 'w-9 h-9 rounded-2xl',
             icon: 'w-5 h-5 stroke-[2.3]',
-            sparkleIcon: 'w-3 h-3',
-            sparklePos: '-top-1 -right-1',
             text: 'text-base',
             gap: 'gap-2.5',
         },
         lg: {
             box: 'w-14 h-14 rounded-3xl',
             icon: 'w-8 h-8 stroke-[2.3]',
-            sparkleIcon: 'w-4 h-4',
-            sparklePos: '-top-1.5 -right-1.5',
             text: 'text-2xl',
             gap: 'gap-3',
         },
@@ -40,7 +34,7 @@ export function AppLogo({
 
     return (
         <div className={cn('flex items-center', s.gap, className)}>
-            {/* Logo Mark: Squircle + Lucide SwatchBook + Sparkle */}
+            {/* Logo Mark: Squircle + Lucide SwatchBook */}
             <div className="relative flex-shrink-0">
                 <div
                     className={cn(
@@ -49,16 +43,6 @@ export function AppLogo({
                     )}
                 >
                     <SwatchBook className={s.icon} />
-                </div>
-
-                {/* Top-Right Sparkle Accent */}
-                <div
-                    className={cn(
-                        'absolute flex items-center justify-center text-amber-300 pointer-events-none drop-shadow-xs',
-                        s.sparklePos
-                    )}
-                >
-                    <Sparkles className={cn(s.sparkleIcon, 'fill-amber-300 stroke-[2]')} />
                 </div>
             </div>
 

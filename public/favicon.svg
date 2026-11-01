@@ -5,10 +5,6 @@
       <stop offset="55%" stop-color="#0284c7" />
       <stop offset="100%" stop-color="#38bdf8" />
     </linearGradient>
-    <linearGradient id="star-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#fef08a" />
-      <stop offset="100%" stop-color="#fbbf24" />
-    </linearGradient>
     <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
       <feDropShadow dx="0" dy="3" stdDeviation="3" flood-color="#0284c7" flood-opacity="0.35"/>
     </filter>
@@ -27,7 +23,4 @@
     <path d="M 7 17h.01"/>
     <path d="m11 8 2.3-2.3a2.4 2.4 0 0 1 3.404.004L18.6 7.6a2.4 2.4 0 0 1 .026 3.434L9.9 19.8"/>
   </g>
-
-  <!-- Lucide Sparkle Accent (4-point star in top-right) -->
-  <path d="M47 11.5 L48.1 14.8 C48.3 15.4 48.8 15.9 49.4 16.1 L52.7 17.2 L49.4 18.3 C48.8 18.5 48.3 19 48.1 19.6 L47 22.9 L45.9 19.6 C45.7 19 45.2 18.5 44.6 18.3 L41.3 17.2 L44.6 16.1 C45.2 15.9 45.7 15.4 45.9 14.8 Z" fill="url(#star-grad)"/>
 </svg>
