@@ -154,7 +154,7 @@ export function DesktopSidebar({ onOpenNewHabit }) {
             {/* Main Navigation Links */}
             <nav className={cn('flex-1 py-2 space-y-1 overflow-y-auto no-scrollbar', isCollapsed ? 'px-2' : 'px-3')}>
                 {!isCollapsed && (
-                    <p className="px-3 pb-1 text-[10px] font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500">
+                    <p className="px-3 pb-1 text-xs font-bold text-slate-400 dark:text-slate-500">
                         Menu Utama
                     </p>
                 )}

@@ -17,7 +17,7 @@ export function WeeklyBarChart({ data = [], average = 0 }) {
                         <BarChart3 className="w-4 h-4 stroke-[2.2]" />
                     </div>
                     <div>
-                        <h2 className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider">
+                        <h2 className="text-xs font-bold text-slate-900 dark:text-white">
                             Grafik Konsistensi 7 Hari
                         </h2>
                         <p className="text-[11px] text-slate-500 font-medium">
@@ -113,7 +113,7 @@ export function WeeklyBarChart({ data = [], average = 0 }) {
                                 {/* Day Label */}
                                 <div className="mt-2 flex flex-col items-center">
                                     <span className={cn(
-                                        'text-[10px] font-bold uppercase transition',
+                                        'text-[10px] font-bold transition',
                                         isSelected
                                             ? 'text-sky-600 dark:text-sky-400'
                                             : isToday

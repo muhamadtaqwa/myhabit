@@ -51,7 +51,7 @@ function TodayContent({ habits = [], selectedDate, dateStrip = [], dailySummary 
                         )}
                     >
                         <div>
-                            <span className={cn('text-[10px] font-bold uppercase tracking-wider', statusFilter === 'pending' ? 'text-sky-100' : 'text-slate-400')}>
+                            <span className={cn('text-xs font-bold', statusFilter === 'pending' ? 'text-sky-100' : 'text-slate-600 dark:text-slate-400')}>
                                 Belum
                             </span>
                             <p className="text-xl font-black mt-0.5">
@@ -78,7 +78,7 @@ function TodayContent({ habits = [], selectedDate, dateStrip = [], dailySummary 
                         )}
                     >
                         <div>
-                            <span className={cn('text-[10px] font-bold uppercase tracking-wider', statusFilter === 'completed' ? 'text-emerald-100' : 'text-emerald-600 dark:text-emerald-400')}>
+                            <span className={cn('text-xs font-bold', statusFilter === 'completed' ? 'text-emerald-100' : 'text-emerald-600 dark:text-emerald-400')}>
                                 Selesai
                             </span>
                             <p className="text-xl font-black mt-0.5">
@@ -137,7 +137,7 @@ function TodayContent({ habits = [], selectedDate, dateStrip = [], dailySummary 
                         {(statusFilter === 'all' || statusFilter === 'pending') && pendingHabits.length > 0 && (
                             <div className="space-y-2">
                                 <div className="flex items-center justify-between px-1">
-                                    <p className="text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider flex items-center gap-1.5">
+                                    <p className="text-xs font-bold text-slate-600 dark:text-slate-300 flex items-center gap-1.5">
                                         <Clock className="w-3.5 h-3.5 text-sky-500 stroke-[2.5]" />
                                         <span>Belum ({pendingHabits.length})</span>
                                     </p>
@@ -159,7 +159,7 @@ function TodayContent({ habits = [], selectedDate, dateStrip = [], dailySummary 
                         {(statusFilter === 'all' || statusFilter === 'completed') && completedHabits.length > 0 && (
                             <div className="space-y-2 pt-1">
                                 <div className="flex items-center justify-between px-1">
-                                    <p className="text-[11px] font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider flex items-center gap-1.5">
+                                    <p className="text-xs font-bold text-emerald-600 dark:text-emerald-400 flex items-center gap-1.5">
                                         <CheckCircle2 className="w-3.5 h-3.5 stroke-[2.5]" />
                                         <span>Selesai ({completedHabits.length})</span>
                                     </p>

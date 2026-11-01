@@ -37,7 +37,7 @@ export function DateStrip({ dateStrip = [], selectedDate }) {
                         {/* Day name */}
                         <span
                             className={cn(
-                                'text-[10px] uppercase font-bold tracking-wider',
+                                'text-[10px] font-bold',
                                 isSelected
                                     ? 'text-sky-100'
                                     : 'text-slate-400 dark:text-slate-500'

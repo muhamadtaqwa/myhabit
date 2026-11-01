@@ -55,7 +55,7 @@ export default function Stats({
                     {/* Active Habits */}
                     <div className="px-3.5 py-2.5 rounded-2xl bg-white dark:bg-[#131d36] border border-slate-200/80 dark:border-slate-800/80 shadow-xs">
                         <div className="flex items-center justify-between text-slate-400 mb-1.5">
-                            <span className="text-[11px] font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
+                            <span className="text-xs font-bold text-slate-600 dark:text-slate-300">
                                 Habit Aktif
                             </span>
                             <div className="w-7 h-7 rounded-xl bg-sky-50 dark:bg-sky-950/40 text-sky-500 flex items-center justify-center">
@@ -70,7 +70,7 @@ export default function Stats({
                     {/* Best Current Streak */}
                     <div className="px-3.5 py-2.5 rounded-2xl bg-white dark:bg-[#131d36] border border-slate-200/80 dark:border-slate-800/80 shadow-xs">
                         <div className="flex items-center justify-between text-slate-400 mb-1.5">
-                            <span className="text-[11px] font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
+                            <span className="text-xs font-bold text-slate-600 dark:text-slate-300">
                                 Streak Tertinggi
                             </span>
                             <div className="w-7 h-7 rounded-xl bg-amber-50 dark:bg-amber-950/40 text-amber-500 flex items-center justify-center">
@@ -88,7 +88,7 @@ export default function Stats({
                     {/* Longest All Time */}
                     <div className="px-3.5 py-2.5 rounded-2xl bg-white dark:bg-[#131d36] border border-slate-200/80 dark:border-slate-800/80 shadow-xs">
                         <div className="flex items-center justify-between text-slate-400 mb-1.5">
-                            <span className="text-[11px] font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
+                            <span className="text-xs font-bold text-slate-600 dark:text-slate-300">
                                 Rekor Terpanjang
                             </span>
                             <div className="w-7 h-7 rounded-xl bg-blue-50 dark:bg-blue-950/40 text-blue-500 flex items-center justify-center">
@@ -106,7 +106,7 @@ export default function Stats({
                     {/* Consistency 30 Days */}
                     <div className="px-3.5 py-2.5 rounded-2xl bg-white dark:bg-[#131d36] border border-slate-200/80 dark:border-slate-800/80 shadow-xs">
                         <div className="flex items-center justify-between text-slate-400 mb-1.5">
-                            <span className="text-[11px] font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
+                            <span className="text-xs font-bold text-slate-600 dark:text-slate-300">
                                 30 Hari Terakhir
                             </span>
                             <div className="w-7 h-7 rounded-xl bg-emerald-50 dark:bg-emerald-950/40 text-emerald-500 flex items-center justify-center">
@@ -143,7 +143,7 @@ export default function Stats({
                                     <CheckSquare className="w-4 h-4 stroke-[2.2]" />
                                 </div>
                                 <div>
-                                    <h2 className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider">
+                                    <h2 className="text-xs font-bold text-slate-900 dark:text-white">
                                         Progres Tugas (To-Do)
                                     </h2>
                                     <p className="text-[11px] text-slate-500 font-medium">
@@ -185,7 +185,7 @@ export default function Stats({
 
                 {/* 4. DETAIL TIAP KEBIASAAN */}
                 <div className="space-y-2.5 pt-0.5">
-                    <h2 className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider px-1">
+                    <h2 className="text-xs font-bold text-slate-900 dark:text-white px-1">
                         Detail Tiap Kebiasaan ({habits.length})
                     </h2>
 

@@ -128,7 +128,7 @@ export default function TasksIndex({
                         {/* Belum */}
                         <div className="px-3.5 py-2.5 rounded-2xl bg-white dark:bg-[#131d36] border border-slate-200/80 dark:border-slate-800/80 shadow-xs flex items-center justify-between">
                             <div>
-                                <span className="text-[10px] font-bold uppercase tracking-wider text-rose-500">
+                                <span className="text-xs font-bold text-rose-500">
                                     Belum
                                 </span>
                                 <p className="text-xl font-black text-slate-900 dark:text-white mt-0.5">
@@ -143,7 +143,7 @@ export default function TasksIndex({
                         {/* Selesai */}
                         <div className="px-3.5 py-2.5 rounded-2xl bg-white dark:bg-[#131d36] border border-slate-200/80 dark:border-slate-800/80 shadow-xs flex items-center justify-between">
                             <div>
-                                <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-500">
+                                <span className="text-xs font-bold text-emerald-500">
                                     Selesai
                                 </span>
                                 <p className="text-xl font-black text-slate-900 dark:text-white mt-0.5">
@@ -183,7 +183,7 @@ export default function TasksIndex({
                             {/* Pending Tasks */}
                             {pendingTasks.length > 0 && (
                                 <div className="space-y-2.5">
-                                    <p className="text-[11px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider px-1">
+                                    <p className="text-xs font-bold text-slate-600 dark:text-slate-400 px-1">
                                         Belum ({pendingTasks.length})
                                     </p>
                                     <div className="space-y-2 md:grid md:grid-cols-2 md:gap-3 md:space-y-0">
@@ -293,7 +293,7 @@ export default function TasksIndex({
                             {/* Completed Tasks */}
                             {completedTasks.length > 0 && (
                                 <div className="space-y-2 pt-1">
-                                    <p className="text-[11px] font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider px-1 flex items-center gap-1.5">
+                                    <p className="text-xs font-bold text-emerald-600 dark:text-emerald-400 px-1 flex items-center gap-1.5">
                                         <CheckCircle2 className="w-3.5 h-3.5 stroke-[2.5]" />
                                         <span>
                                             Selesai ({completedTasks.length})

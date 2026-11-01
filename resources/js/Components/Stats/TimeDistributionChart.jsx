@@ -22,7 +22,7 @@ export function TimeDistributionChart({ distribution = [], totalHabits = 0 }) {
                         <Clock className="w-4 h-4 stroke-[2.2]" />
                     </div>
                     <div>
-                        <h2 className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider">
+                        <h2 className="text-xs font-bold text-slate-900 dark:text-white">
                             Distribusi Waktu
                         </h2>
                         <p className="text-[11px] text-slate-500 font-medium">
