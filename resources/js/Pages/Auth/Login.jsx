@@ -54,21 +54,11 @@ export default function Login({ status, canResetPassword }) {
                 </div>
 
                 <div>
-                    <div className="flex items-center justify-between">
-                        <InputLabel
-                            htmlFor="password"
-                            value="Kata Sandi"
-                            className="text-xs font-bold text-slate-700 dark:text-slate-300"
-                        />
-                        {canResetPassword && (
-                            <Link
-                                href={route("password.request")}
-                                className="text-xs font-semibold text-sky-600 dark:text-sky-400 hover:underline transition"
-                            >
-                                Lupa sandi?
-                            </Link>
-                        )}
-                    </div>
+                    <InputLabel
+                        htmlFor="password"
+                        value="Kata Sandi"
+                        className="text-xs font-bold text-slate-700 dark:text-slate-300"
+                    />
                     <TextInput
                         id="password"
                         type="password"
@@ -83,7 +73,7 @@ export default function Login({ status, canResetPassword }) {
                 </div>
 
                 <div className="flex items-center justify-between pt-1">
-                    <label className="flex items-center gap-2 cursor-pointer">
+                    <label className="flex items-center gap-2 cursor-pointer select-none">
                         <Checkbox
                             name="remember"
                             checked={data.remember}
@@ -93,9 +83,18 @@ export default function Login({ status, canResetPassword }) {
                             className="rounded-lg border-slate-300 text-sky-600 focus:ring-sky-500"
                         />
                         <span className="text-xs font-semibold text-slate-600 dark:text-slate-400">
-                            Ingat saya di perangkat ini
+                            Ingat saya
                         </span>
                     </label>
+
+                    {canResetPassword && (
+                        <Link
+                            href={route("password.request")}
+                            className="text-xs font-semibold text-sky-600 dark:text-sky-400 hover:underline transition"
+                        >
+                            Lupa sandi?
+                        </Link>
+                    )}
                 </div>
 
                 <div className="pt-2">
