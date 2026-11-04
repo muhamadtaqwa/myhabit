@@ -148,9 +148,6 @@ export default function Stats({
                                     <h2 className="text-xs font-bold text-slate-900 dark:text-white">
                                         Progres Tugas (To-Do)
                                     </h2>
-                                    <p className="text-[11px] text-slate-500 font-medium">
-                                        Status penyelesaian daftar tugas Anda
-                                    </p>
                                 </div>
                             </div>
                             <span className="text-xs font-black text-violet-600 dark:text-violet-400">
