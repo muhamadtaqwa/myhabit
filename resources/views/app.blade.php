@@ -7,13 +7,13 @@
         <title inertia>{{ config('app.name', 'Laravel') }}</title>
 
         <!-- Favicon & Touch Icons -->
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=3">
-        <link rel="icon" type="image/png" sizes="128x128" href="/favicon.png?v=3">
-        <link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192.png?v=3">
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=3">
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=4">
+        <link rel="icon" type="image/png" sizes="128x128" href="/favicon.png?v=4">
+        <link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192.png?v=4">
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=4">
 
         <!-- PWA Manifest & App Metas -->
-        <link rel="manifest" href="/manifest.json?v=3">
+        <link rel="manifest" href="/manifest.json?v=4">
         <meta name="theme-color" content="#0284c7">
         <meta name="mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-capable" content="yes">

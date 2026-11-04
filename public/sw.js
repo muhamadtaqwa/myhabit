@@ -1,5 +1,5 @@
 // MyHabit Minimal PWA Service Worker (Installable without offline caching)
-const CACHE_NAME = 'myhabit-v3';
+const CACHE_NAME = 'myhabit-v4';
 
 self.addEventListener('install', (event) => {
     self.skipWaiting();
